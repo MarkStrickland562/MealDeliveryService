@@ -7,6 +7,5 @@ export class Restaurant {
                public hours: string,
                public website: string,
                public menuType: string,
-               public menuItems: MenuItem [],
-               public eventDate: Date = new Date()) {}
+               public menuItems: MenuItem []) {}
 }
