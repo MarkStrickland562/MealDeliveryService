@@ -1,0 +1,65 @@
+{
+  "users":
+  [
+    {
+      "mstrickland":
+        {
+          "name": "Mark Strickland",
+          "emailAddress": "markstrickland562@hotmail.com",
+          "streetAddress": "511 East Roy Street, #408, Seattle, WA 98102",
+          "phoneNumber": "2067694978"
+        }
+    }
+  ],
+  "restaurants":
+  [
+    {
+      "jadegarden":
+      {
+        "restaurantName": "Jade Garden",
+        "streetAddress": "424 7th Ave S, Seattle, WA 98104",
+        "hours": "11:00 AM - 10:00 PM",
+        "website": "www.jadegardenseattle.com",
+        "menu":
+          {
+            "menuType": "Asian",
+            "menuItems":
+              {
+                "mandarinchicken":
+                  {
+                    "menuItemName": "Mandarin Chicken",
+                    "cost": "10",
+                    "preparationTime": "30",
+                    "menuSubItems": ["Mandarin Chicken", "Rice", "Miso Soup"]
+                  }
+              }
+          }
+      }
+    }
+  ],
+  "orders":
+  [
+    {
+      "orderUsers":
+        {
+          "mstrickland": true
+        },
+      "orderDateTime": "2019-04-14 17:00:00",
+      "deliveryDateTime": "2019-04-14 19:00:00",
+      "restaurant":
+        {
+          "jadegarden": true
+        },
+      "orderDetails":
+        {
+          "menuItems":
+            [
+              {
+                "mandarinchicken": true,
+                "quantity": "2"
+              }
+            ]
+        }
+    }
+  ]
+}
