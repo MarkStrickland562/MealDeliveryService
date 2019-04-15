@@ -38,6 +38,8 @@ import { NewMenuItemComponent } from './new-menu-item/new-menu-item.component';
 import { EditMenuItemComponent } from './edit-menu-item/edit-menu-item.component';
 import { DeleteMenuItemComponent } from './delete-menu-item/delete-menu-item.component';
 import { SearchMenuItemComponent } from './search-menu-item/search-menu-item.component';
+import { FooterComponent } from './footer/footer.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 export const firebaseConfig = {
   apiKey: masterFirebaseConfig.apiKey,
@@ -77,7 +79,9 @@ export const firebaseConfig = {
     NewMenuItemComponent,
     EditMenuItemComponent,
     DeleteMenuItemComponent,
-    SearchMenuItemComponent
+    SearchMenuItemComponent,
+    FooterComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
