@@ -1,4 +1,4 @@
-import { OrderDetail } from './orderDetail.model';
+import { OrderItem } from './orderItem.model';
 
 export class Order {
   constructor (public orderKey: string,
@@ -6,5 +6,6 @@ export class Order {
                public orderDateTime: Date = new Date(),
                public deliveryDateTime: Date = new Date(),
                public restaurantKey: string,
-               public orderDetails: OrderDetail[]) {}
+               public orderItems: OrderItem[],
+               public totalCost: number) {}
 }
