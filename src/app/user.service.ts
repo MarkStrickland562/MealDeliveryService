@@ -24,10 +24,11 @@ export class UserService {
 
   updateUser(localUpdatedUser){
     var userInFirebase = this.getUserById(localUpdatedUser.$key);
-    userInFirebase.update({name: localUpdatedUser.name,
-                           emailAddress: localUpdatedUser.emailAddress,
-                           streetAddress: localUpdatedUser.streetAddress,
-                           phoneNumber: localUpdatedUser.phoneNumber});
+    userInFirebase.update({first_name: localUpdatedUser.firstName,
+                           last_name: localUpdatedUser.lastName,
+                           email_address: localUpdatedUser.emailAddress,
+                           delivery_address: localUpdatedUser.deliveryAddress,
+                           phone_number: localUpdatedUser.phoneNumber});
   }
 
   deleteUser(userToBeDeleted){

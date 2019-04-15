@@ -39,7 +39,7 @@ export class EditUserComponent implements OnInit {
   }
 
   updateUser(userToUpdate) {
-    if (userToUpdate.userKey != "" && userToUpdate.name != "" && userToUpdate.emailAddress != "" && userToUpdate.phoneNumber != "") {
+    if (userToUpdate.firstName != "" && userToUpdate.lastName != "" && userToUpdate.emailAddress != "" &&userToUpdate.deliveryAddress != "" && userToUpdate.phoneNumber != "") {
       this.userService.updateUser(userToUpdate);
       this.goToShowUserPage();
     } else {

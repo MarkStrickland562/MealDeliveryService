@@ -28,9 +28,9 @@ export class NewRestaurantComponent implements OnInit {
       this.router.navigate(['restaurants']);
   }
 
-  addRestaurant(restaurantKey: string, restaurantName: string, streetAddress: string, hours: string, website: string, menuType: string, menuItems: MenuItem[]) {
-    if (restaurantKey != "" && restaurantName != "" && streetAddress != "" && hours != "" && website != "" && menuType != "" && menuItems.length > 0) {
-      let newRestaurant: Restaurant = new Restaurant(restaurantKey, restaurantName, streetAddress, hours, website, menuType, menuItems);
+  addRestaurant(restaurantName: string, streetAddress: string, hours: string, website: string, cuisine: string, menuItems: MenuItem[]) {
+    if (restaurantName != "" && streetAddress != "" && hours != "" && website != "" && cuisine != "" && menuItems.length > 0) {
+      let newRestaurant: Restaurant = new Restaurant(restaurantName, streetAddress, hours, website, cuisine, menuItems);
       this.restaurantService.addRestaurant(newRestaurant);
       this.goToShowRestaurantPage();
     } else {

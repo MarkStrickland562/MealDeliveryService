@@ -39,7 +39,7 @@ export class EditRestaurantComponent implements OnInit {
   }
 
   updateRestaurant(restaurantToUpdate) {
-    if (restaurantToUpdate.restaurantKey != "" && restaurantToUpdate.restaurantName != "" && restaurantToUpdate.streetAddress != "" && restaurantToUpdate.hours != "" && restaurantToUpdate.website != "" && restaurantToUpdate.menuType != "" && restaurantToUpdate.menuItems.length > 0) {
+    if (restaurantToUpdate.restaurantName != "" && restaurantToUpdate.streetAddress != "" && restaurantToUpdate.hours != "" && restaurantToUpdate.website != "" && restaurantToUpdate.cuisine != "" && restaurantToUpdate.menuItems.length > 0) {
       this.restaurantService.updateRestaurant(restaurantToUpdate);
       this.goToShowRestaurantPage();
     } else {

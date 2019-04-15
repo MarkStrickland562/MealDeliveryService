@@ -24,12 +24,12 @@ export class RestaurantService {
 
   updateRestaurant(localUpdatedRestaurant){
     var restaurantInFirebase = this.getRestaurantById(localUpdatedRestaurant.$key);
-    restaurantInFirebase.update({restaurantName: localUpdatedRestaurant.restaurantName,
-                                 streetAddress: localUpdatedRestaurant.streetAddress,
+    restaurantInFirebase.update({restaurant_name: localUpdatedRestaurant.restaurantName,
+                                 street_address: localUpdatedRestaurant.streetAddress,
                                  hours: localUpdatedRestaurant.hours,
                                  website: localUpdatedRestaurant.website,
-                                 menuType: localUpdatedRestaurant.menuType,
-                                 menuItems: localUpdatedRestaurant.menuItems});
+                                 cuisine: localUpdatedRestaurant.cuisine,
+                                 menu_items: localUpdatedRestaurant.menuItems});
   }
 
   deleteRestaurant(restaurantToBeDeleted){
