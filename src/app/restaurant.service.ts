@@ -15,7 +15,7 @@ export class RestaurantService {
   }
 
   getRestaurantById(restaurantId: string) {
-    return this.database.object('/restaurants/' + restaurantId);
+    return this.database.object('/restaurants/' + restaurantId + '/jadegarden');
   }
 
   addRestaurant(newRestaurant: Restaurant) {

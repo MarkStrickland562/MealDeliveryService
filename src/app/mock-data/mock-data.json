@@ -23,16 +23,14 @@
         "menu":
           {
             "menuType": "Asian",
-            "menuItems":
+            "menuItems": [
               {
-                "mandarinchicken":
-                  {
-                    "menuItemName": "Mandarin Chicken",
-                    "cost": "10",
-                    "preparationTime": "30",
-                    "menuSubItems": ["Mandarin Chicken", "Rice", "Miso Soup"]
-                  }
+                "menuItemName": "Mandarin Chicken",
+                "cost": "10",
+                "preparationTime": "30",
+                "menuSubItems": ["Mandarin Chicken", "Rice", "Miso Soup"]
               }
+            ]
           }
       }
     }

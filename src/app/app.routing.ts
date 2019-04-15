@@ -64,8 +64,8 @@ const appRoutes: Routes = [
     component: SearchUserComponent
   },
   {
-    path: 'restaurants',
-    component: ShowUsersComponent
+    path: 'restaurants/:restaurantId',
+    component: ShowMenuItemsComponent
   },
   {
     path: 'new-restaurant',
