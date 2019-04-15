@@ -10,28 +10,28 @@
     }
   ],
   "restaurants":
-  [
-    {
-      "restaurant_name": "Jade Garden",
-      "street_address": "424 7th Ave S, Seattle, WA 98104",
-      "hours": "11:00 AM - 10:00 PM",
-      "website": "www.jadegardenseattle.com",
-      "cuisine": "Chinese"
-      "menu":
+    [
+      {
+        "restaurant_name": "Jade Garden",
+        "street_address": "424 7th Ave S, Seattle, WA 98104",
+        "hours": "11:00 AM - 10:00 PM",
+        "website": "www.jadegardenseattle.com",
+        "cuisine": "Chinese",
+        "menu":
           {
             "menu_type": "Asian",
             "menu_items":
-              {
+              [
                 {
                   "menu_item_name": "Mandarin Chicken",
                   "cost": "10",
                   "preparation_time": "30",
                   "menu_sub_items": ["Chicken", "Rice", "Miso Soup"]
                 }
-              }
+              ]
           }
-    }
-  ],
+      }
+    ],
   "orders":
   [
     {
@@ -45,17 +45,14 @@
         {
           "0": true
         },
-      "order_details":
-        {
-          "order_items":
-            [
-              {
-                "item": "Mandarin Chicken",
-                "quantity": "2",
-                "cost": "10"
-              }
-            ]
-        },
+      "order_items":
+        [
+          {
+            "item": "Mandarin Chicken",
+            "quantity": "2",
+            "cost": "10"
+          }
+        ],
       "total_cost": "20"
     }
   ]
