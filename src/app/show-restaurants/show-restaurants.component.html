@@ -1,3 +1,42 @@
-<p>
-  show-restaurants works!
-</p>
+<div class="restaurants">
+  <div class="filter">
+    <h3>Find Restaurants</h3>
+    <hr>
+    <div class="search">
+      <input type="text" placeholder="Search Restaurants..">
+      <button>go</button>
+    </div>
+    <hr>
+    <div class="priceRefine">
+      <h5>Filter by Price: </h5>
+      <input type="checkbox" name="cheapest" value=1> $
+      <br>
+      <input type="checkbox" name="midrange" value=2> $$
+      <br>
+      <input type="checkbox" name="mostExpensive" value=2> $$$
+    </div>
+    <hr>
+    <div class="cuisineRefine">
+      <h5>Sort Cuisine</h5>
+      <input type="checkbox" name="italian" value="italian"> Italian
+      <br>
+      <input type="checkbox" name="chinese" value="chinese"> Chinese
+      <br>
+      <input type="checkbox" name="mexican" value="mexican"> Mexican
+      <br>
+      <input type="checkbox" name="japanese" value="japanese"> Japanese
+      <br>
+      <input type="checkbox" name="american" value="american"> American
+      <br>
+      <input type="checkbox" name="indian" value="indian"> Indian
+    </div>
+  </div>
+
+  <div class="list">
+    <!-- <div *ngFor="let restaurant of restaurantList | async">
+      {{restaurant.restaurantName}}
+    </div> -->
+    <div class="restaurantBlock" *ngFor="let restaurant of restaurants"><img> <p>{{restaurant}}</p><p>Cuisine Type:</p><p>Price:</p></div>
+  </div>
+
+</div>

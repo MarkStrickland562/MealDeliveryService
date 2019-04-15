@@ -1,0 +1,38 @@
+.restaurants {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+}
+
+.filter {
+  border: 1px solid black;
+  height: 500px;
+  margin: 5px;
+}
+
+.list {  
+  margin: 5px;
+}
+
+.restaurantBlock {
+  text-align: center;
+  min-height: 250px;
+  height: auto;
+  min-width: 200px;
+  display: inline-block;
+  border: 1px solid black;
+  vertical-align: middle;
+  padding: 10px;
+  margin: 10px;
+}
+
+.restaurantBlock:hover {
+  transform: scale(1.05);
+  box-shadow: 4px 4px rgba(0, 0, 0, .5);
+
+}
+
+img {
+  height: 100px;
+  width: 150px;
+  border: 1px solid black;
+}
