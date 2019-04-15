@@ -17,19 +17,15 @@
         "hours": "11:00 AM - 10:00 PM",
         "website": "www.jadegardenseattle.com",
         "cuisine": "Chinese",
-        "menu":
-          {
-            "menu_type": "Asian",
-            "menu_items":
-              [
-                {
-                  "menu_item_name": "Mandarin Chicken",
-                  "cost": "10",
-                  "preparation_time": "30",
-                  "menu_sub_items": ["Chicken", "Rice", "Miso Soup"]
-                }
-              ]
-          }
+        "menu_items":
+          [
+            {
+              "menu_item_name": "Mandarin Chicken",
+              "cost": "10",
+              "preparation_time": "30",
+              "menu_sub_items": ["Chicken", "Rice", "Miso Soup"]
+            }
+          ]
       }
     ],
   "orders":
