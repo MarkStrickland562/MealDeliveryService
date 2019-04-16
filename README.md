@@ -1,13 +1,6 @@
 ## **Mark Strickland**
-
-| [<img src="https://avatars1.githubusercontent.com/u/39330458?s=400&v=4" width=100 alt="GitHub avatar for author sjullieb">](http://github.com/sjullieb) |
-| [<img src="https://avatars1.githubusercontent.com/u/20866010?s=400&v=4" width=100 alt="GitHub avatar for author dsarbora">](http://github.com/dsarbora) |
-| [<img src="https://avatars1.githubusercontent.com/u/46273227?s=400&v=4" width=100 alt="GitHub avatar for author owysocky">](http://github.com/owysocky) |
-| [<img src="https://avatars0.githubusercontent.com/u/46360355?s=400&v=4" width=100 alt="GitHub avatar for author samstoia">](http://github.com/samstoia) |
-| [<img src="https://avatars0.githubusercontent.com/u/46360355?s=400&v=4" width=100 alt="GitHub avatar for author samstoia">](http://github.com/samstoia) |
-| [<img src="https://avatars1.githubusercontent.com/u/46455727?s=400&v=4" width=100 alt="GitHub avatar for author MarkStrickland562">](https://github.com/MarkStrickland562) |
+| [<img src="https://avatars1.githubusercontent.com/u/39330458?s=400&v=4" width=100 alt="GitHub avatar for author sjullieb">](http://github.com/sjullieb) |  [<img src="https://avatars1.githubusercontent.com/u/20866010?s=400&v=4" width=100 alt="GitHub avatar for author dsarbora">](http://github.com/dsarbora) | [<img src="https://avatars1.githubusercontent.com/u/46273227?s=400&v=4" width=100 alt="GitHub avatar for author owysocky">](http://github.com/owysocky) |  [<img src="https://avatars0.githubusercontent.com/u/46360355?s=400&v=4" width=100 alt="GitHub avatar for author samstoia">](http://github.com/samstoia) |  [<img src="https://avatars1.githubusercontent.com/u/46455727?s=400&v=4" width=100 alt="GitHub avatar for author MarkStrickland562">](https://github.com/MarkStrickland562) |
 |:-----:|:-----:|:-----:|:-----:|:-----:|
-| [**]
 | [**sjullieb**](https://github.com/sjullieb) | [**dsarbora**](https://github.com/dsarbora) | [**owysocky**](https://github.com/owysocky) | [**samstoia**](https://github.com/samstoia) | [**MarkStrickland562**](https://github.com/MarkStrickland562) |
 | Julia Shidlovskaya | Dave Sarbora | Olya Wysocky | Sam Stoia | Mark Strickland |
 
@@ -16,7 +9,6 @@
 ###### Created April 15, 2019. Finalized April 18, 2019.
 
 ----------
-
 ## Description
 This project is the team project for the javascript/Angular class at Epicodus coding bootcamp. The project is a Meal Delivery Service application.
 
