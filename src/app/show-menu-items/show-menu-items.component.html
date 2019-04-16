@@ -8,30 +8,24 @@
 
 
 
-  <!-- <div>
+  <div>
 
   </div>
 
   <div *ngFor="let item of menuItems">
-  <ul>
-    <li>{{item.menuItemName}}, ${{item.menuItemCost}}</li>
-    <ul *ngFor="let sub of item.menuSubItems">
-      <li>{{sub}}</li>
-    </ul>
-  </ul>
-  </div>
-
-</div> -->
-
-<div class="menu">
-    <h4>Menu</h4>
-    <div class="list">
-      <div class="menuBlock" *ngFor="let item of menuItems | async">
-        <h6>{{item.menuItemName}}</h6>
-        <p>${{item.menuItemCost}}</p>
+  <div class="row">
+    <div class="col-sm-3">
+      <ul>
+        <li>{{item.menuItemName}}, ${{item.menuItemCost}}</li>
         <ul *ngFor="let sub of item.menuSubItems">
-            <li>{{sub}}</li>
-          </ul>
-      </div>
+          <li>{{sub}}</li>
+        </ul>
+      </ul>
+    </div>
+    <div class="col-sm-1">
+      <button (click)="addToCart(item)"><i class="fas fa-cart-plus"></i></button>
     </div>
   </div>
+  </div>
+
+</div>
