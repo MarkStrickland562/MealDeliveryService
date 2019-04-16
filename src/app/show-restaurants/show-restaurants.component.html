@@ -4,31 +4,35 @@
     <hr>
     <div class="search">
       <input type="text" placeholder="Search Restaurants..">
-      <button>go</button>
+      <button>Search</button>
     </div>
     <hr>
-    <div class="priceRefine">
+    <div class="refine">
       <h5>Filter by Price: </h5>
-      <input type="checkbox" name="cheapest" value=1> $
-      <br>
-      <input type="checkbox" name="midrange" value=3> $$
-      <br>
-      <input type="checkbox" name="mostExpensive" value=5> $$$
-    </div>
-    <hr>
-    <div class="cuisineRefine">
-      <h5>Sort Cuisine</h5>
-      <input type="checkbox" name="italian" value="italian"> Italian
-      <br>
-      <input type="checkbox" name="chinese" value="chinese"> Chinese
-      <br>
-      <input type="checkbox" name="mexican" value="mexican"> Mexican
-      <br>
-      <input type="checkbox" name="japanese" value="japanese"> Japanese
-      <br>
-      <input type="checkbox" name="american" value="american"> American
-      <br>
-      <input type="checkbox" name="indian" value="indian"> Indian
+      <form action="">
+        <input type="checkbox" name="cheapest" value=1> $
+        <br>
+        <input type="checkbox" name="midrange" value=3> $$
+        <br>
+        <input type="checkbox" name="mostExpensive" value=5> $$$
+    
+        <hr>
+      
+        <h5>Filter by Cuisine:</h5>
+        <input type="checkbox" name="italian" value="italian"> Italian
+        <br>
+        <input type="checkbox" name="chinese" value="chinese"> Chinese
+        <br>
+        <input type="checkbox" name="mexican" value="mexican"> Mexican
+        <br>
+        <input type="checkbox" name="japanese" value="japanese"> Japanese
+        <br>
+        <input type="checkbox" name="american" value="american"> American
+        <br>
+        <input type="checkbox" name="indian" value="indian"> Indian
+      
+        <button>Filter</button>
+      </form>
     </div>
   </div>
 

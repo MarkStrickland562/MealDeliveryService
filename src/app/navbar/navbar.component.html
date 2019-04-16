@@ -1,10 +1,9 @@
-<nav>
-  <!-- Navbar Main Link -->
+<!-- <nav>
     <div class="home">
       <a routerLink="main">Home</a>
     </div>
     
-    <!-- Restaurants Info -->
+
     <div class="restaurants">
       <h3><a routerLink="restaurants">All Restaurants</a> </h3>
       <h3 class="dropdown">
@@ -27,4 +26,37 @@
     <div class="cart">
       <strong>Cart</strong>
     </div>
-  </nav>
+  </nav> -->
+
+  <div class="nav-container">
+    <nav>
+      <input type="checkbox" id="nav-toggle">
+      <label for="nav-toggle" class="burger-menu">
+          <i class="fa fa-bars"></i>
+      </label>
+      <div class="left-menu">
+        <label for="checkbox" class="whiteText" id="clickable">Restaurants by Cuisine</label>
+        <input id="checkbox" type="checkbox">
+        <ul>
+          <li><a routerLink="#">Italian</a></li>
+          <li><a routerLink="#">Chinese</a></li>
+          <li><a routerLink="#">Japanese</a></li>
+          <li><a routerLink="#">...more</a></li>
+        </ul>
+        <a routerLink="restaurants">See All Restaurants</a>
+          
+
+      </div>
+      <div class="center-menu">
+        <a href="#" class="logo">ByteSquad</a>
+      </div>
+
+      <div class="search-menu">
+        <input id="searchBar" class="right" type="text" placeholder="Search..">
+        <a routerLink="cart" class="right"><i class="fa fa-shopping-cart"></i></a>
+      </div>
+        
+        
+        
+    </nav>
+  </div>
