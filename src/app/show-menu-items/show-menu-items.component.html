@@ -10,12 +10,19 @@
   <h4>Menu</h4>
 
   <div *ngFor="let item of menuItems">
-  <ul>
-    <li>{{item.menuItemName}}, ${{item.menuItemCost}}</li>
-    <ul *ngFor="let sub of item.menuSubItems">
-      <li>{{sub}}</li>
-    </ul>
-  </ul>
+  <div class="row">
+    <div class="col-sm-3">
+      <ul>
+        <li>{{item.menuItemName}}, ${{item.menuItemCost}}</li>
+        <ul *ngFor="let sub of item.menuSubItems">
+          <li>{{sub}}</li>
+        </ul>
+      </ul>
+    </div>
+    <div class="col-sm-1">
+      <button (click)="addToCart(item)"><i class="fas fa-cart-plus"></i></button>
+    </div>
+  </div>
   </div>
 
 </div>
