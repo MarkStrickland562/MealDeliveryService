@@ -2,6 +2,10 @@ h3 {
   display: inline-block;
 }
 
+.cart {
+  text-align: center;
+}
+
 .restaurants {
   justify-items: left;
 }
