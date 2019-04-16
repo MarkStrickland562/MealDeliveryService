@@ -1,12 +1,12 @@
 import {Pipe, PipeTransform} from '@angular/core';
-import { User } from './models/user.model';
+import { Restaurant } from './models/restaurant.model';
 
 @Pipe({
-  name: "SearchUserPipe",
+  name: "SearchRestaurantNamePipe",
   pure: false
 })
 
-export class SearchUserPipe implements PipeTransform {
+export class SearchRestaurantNamePipe implements PipeTransform {
   transform(input: any[], searchString: string): any[] {
     if(!input) return [];
     if(!searchString) return [];
@@ -14,6 +14,6 @@ export class SearchUserPipe implements PipeTransform {
     searchString = searchString.toLowerCase();
 
     return input.filter((it:any) =>
-      it.name.toLowerCase().includes(searchString))
+      it.restaurantName.toLowerCase().includes(searchString))
   }
 }

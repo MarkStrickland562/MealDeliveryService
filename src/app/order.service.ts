@@ -5,6 +5,7 @@ import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/databa
 @Injectable()
 export class OrderService {
   orderList: FirebaseListObservable<any[]>;
+  orderListForUser: FirebaseListObservable<any[]>;
 
   constructor(private database: AngularFireDatabase) {
     this.orderList = database.list('orders');
@@ -14,8 +15,17 @@ export class OrderService {
     return this.orderList;
   }
 
-  getOrderById(orderId: string) {
-    return this.database.object('/orders/' + orderId);
+  getOrdersForUser(userKey: string) {
+    this.orderListForUser = this.database.list('/orders', {
+      query: {
+        orderByChild: 'orderDateTime',
+        equalTo: userKey
+      }
+    });
+  }
+
+  getOrderByKey(orderKey: string) {
+    return this.database.object('/orders/' + orderKey);
   }
 
   addOrder(newOrder: Order) {
@@ -23,7 +33,7 @@ export class OrderService {
   }
 
   updateOrder(localUpdatedOrder){
-    var orderInFirebase = this.getOrderById(localUpdatedOrder.$key);
+    var orderInFirebase = this.getOrderByKey(localUpdatedOrder.$key);
     orderInFirebase.update({orderDateTime: localUpdatedOrder.orderDateTime,
                             deliveryDateTime: localUpdatedOrder.deliveryDateTime,
                             restaurantKey: localUpdatedOrder.restaurantKey,
@@ -31,7 +41,11 @@ export class OrderService {
   }
 
   deleteOrder(orderToBeDeleted){
-    var orderToDeleteInFirebase = this.getOrderById(orderToBeDeleted.$key);
+    var orderToDeleteInFirebase = this.getOrderByKey(orderToBeDeleted.$key);
     orderToDeleteInFirebase.remove();
+  }
+
+  deleteAllOrders() {
+    this.orderList.remove()
   }
 }
