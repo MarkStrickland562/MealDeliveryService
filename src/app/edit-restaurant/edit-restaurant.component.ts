@@ -16,7 +16,7 @@ import { RestaurantService } from '../restaurant.service';
 
 export class EditRestaurantComponent implements OnInit {
 
-  restaurantId: string;
+  restaurantKey: string;
   restaurantToUpdate;
 
   constructor(
@@ -27,9 +27,9 @@ export class EditRestaurantComponent implements OnInit {
 
   ngOnInit() {
     this.route.params.forEach((urlParameters) => {
-      this.restaurantId = urlParameters['id'];
+      this.restaurantKey = urlParameters['id'];
     });
-    this.restaurantService.getRestaurantById(this.restaurantId).subscribe(dataLastEmittedFromObserver => {
+    this.restaurantService.getRestaurantByKey(this.restaurantKey).subscribe(dataLastEmittedFromObserver => {
       this.restaurantToUpdate = dataLastEmittedFromObserver;
     })
   }

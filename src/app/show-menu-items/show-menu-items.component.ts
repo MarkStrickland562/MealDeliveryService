@@ -14,45 +14,43 @@ import { RestaurantService } from '../restaurant.service';
 })
 export class ShowMenuItemsComponent implements OnInit {
 
-  restaurantId: string;
+  restaurantKey: string;
   restaurantToDisplay: Restaurant;
   menuItems: MenuItem[] = [];
 
   constructor(private route: ActivatedRoute, private location: Location, private restaurantService: RestaurantService) { }
 
   ngOnInit() {
-  //   this.route.params.forEach((urlParameters) => {
-  //     this.restaurantId = urlParameters['restaurantId'];
-  //   });
+    this.route.params.forEach((urlParameters) => {
+      this.restaurantKey = urlParameters['restaurantId'];
+    });
 
-  //   this.restaurantService.getRestaurantById(this.restaurantId).subscribe(dataLastEmittedFromObserver => {
-  //     let items: MenuItem[] = [];
+    this.restaurantService.getRestaurantByKey(this.restaurantKey).subscribe(dataLastEmittedFromObserver => {
+      let items: MenuItem[] = [];
 
-  //     for(let i = 0; i < dataLastEmittedFromObserver.menu.menuItems.length; i++){
-  //       let subItems: string[] = [];
+      for(let i = 0; i < dataLastEmittedFromObserver.menu.menuItems.length; i++){
+        let subItems: string[] = [];
 
-  //       for(let j = 0; j < dataLastEmittedFromObserver.menu.menuItems[i].menuSubItems.length; j++){
-  //         subItems.push(dataLastEmittedFromObserver.menu.menuItems[i].menuSubItems[j]);
-  //       }
-  //       let newItem = new MenuItem(dataLastEmittedFromObserver.menu.menuItems[i].menuItemKey,
-  //                    dataLastEmittedFromObserver.menu.menuItems[i].menuItemName,
-  //                    dataLastEmittedFromObserver.menu.menuItems[i].cost,
-  //                    dataLastEmittedFromObserver.menu.menuItems[i].preparationTime,
-  //                    subItems);
-  //       items.push(newItem);
-  //       this.menuItems.push(newItem);
-  //     }
-  //     this.restaurantToDisplay = new Restaurant(
-  //       dataLastEmittedFromObserver.restaurantKey,
-  //                    dataLastEmittedFromObserver.restaurantName,
-  //                    dataLastEmittedFromObserver.streetAddress,
-  //                    dataLastEmittedFromObserver.hours,
-  //                    dataLastEmittedFromObserver.website,
-  //                    dataLastEmittedFromObserver.menuType,
-  //                    items);
+        for(let j = 0; j < dataLastEmittedFromObserver.menu.menuItems[i].menuSubItems.length; j++){
+          subItems.push(dataLastEmittedFromObserver.menu.menuItems[i].menuSubItems[j]);
+        }
+        let newItem = new MenuItem(dataLastEmittedFromObserver.menu.menuItems[i].menuItemName,
+                                   dataLastEmittedFromObserver.menu.menuItems[i].cost,
+                                   dataLastEmittedFromObserver.menu.menuItems[i].preparationTime,
+                                   subItems);
+        items.push(newItem);
+        this.menuItems.push(newItem);
+      }
+      this.restaurantToDisplay = new Restaurant(
+                     dataLastEmittedFromObserver.restaurantName,
+                     dataLastEmittedFromObserver.streetAddress,
+                     dataLastEmittedFromObserver.hours,
+                     dataLastEmittedFromObserver.website,
+                     dataLastEmittedFromObserver.menuType,
+                     items);
 
-  //     console.log(this.restaurantToDisplay);
-  //   });
-  // }
+      console.log(this.restaurantToDisplay);
+    });
+  }
 }
 }

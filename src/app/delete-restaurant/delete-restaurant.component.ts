@@ -15,7 +15,7 @@ import { RestaurantService } from '../restaurant.service';
 })
 
 export class DeleteRestaurantComponent implements OnInit {
-  restaurantId: string;
+  restaurantKey: string;
   restaurantToDelete;
 
   constructor(
@@ -26,9 +26,9 @@ export class DeleteRestaurantComponent implements OnInit {
 
   ngOnInit() {
     this.route.params.forEach((urlParameters) => {
-      this.restaurantId = urlParameters['id'];
+      this.restaurantKey = urlParameters['id'];
     });
-    this.restaurantService.getRestaurantById(this.restaurantId).subscribe(dataLastEmittedFromObserver => {
+    this.restaurantService.getRestaurantByKey(this.restaurantKey).subscribe(dataLastEmittedFromObserver => {
       this.restaurantToDelete = dataLastEmittedFromObserver;
     })
   }

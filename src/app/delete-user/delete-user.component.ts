@@ -15,7 +15,7 @@ import { UserService } from '../user.service';
 })
 
 export class DeleteUserComponent implements OnInit {
-  userId: string;
+  userKey: string;
   userToDelete;
 
   constructor(
@@ -26,9 +26,9 @@ export class DeleteUserComponent implements OnInit {
 
   ngOnInit() {
     this.route.params.forEach((urlParameters) => {
-      this.userId = urlParameters['id'];
+      this.userKey = urlParameters['id'];
     });
-    this.userService.getUserById(this.userId).subscribe(dataLastEmittedFromObserver => {
+    this.userService.getUserByKey(this.userKey).subscribe(dataLastEmittedFromObserver => {
       this.userToDelete = dataLastEmittedFromObserver;
     })
   }

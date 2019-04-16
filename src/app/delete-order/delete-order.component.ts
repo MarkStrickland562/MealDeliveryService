@@ -15,7 +15,7 @@ import { OrderService } from '../order.service';
 })
 
 export class DeleteOrderComponent implements OnInit {
-  orderId: string;
+  orderKey: string;
   orderToDelete;
 
   constructor(
@@ -26,9 +26,9 @@ export class DeleteOrderComponent implements OnInit {
 
   ngOnInit() {
     this.route.params.forEach((urlParameters) => {
-      this.orderId = urlParameters['id'];
+      this.orderKey = urlParameters['id'];
     });
-    this.orderService.getOrderById(this.orderId).subscribe(dataLastEmittedFromObserver => {
+    this.orderService.getOrderByKey(this.orderKey).subscribe(dataLastEmittedFromObserver => {
       this.orderToDelete = dataLastEmittedFromObserver;
     })
   }
