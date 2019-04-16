@@ -106,6 +106,10 @@ const appRoutes: Routes = [
   {
     path: 'restaurants',
     component: ShowRestaurantsComponent
+  },
+  {
+    path: 'menu',
+    component: ShowMenuItemsComponent
   }
 ];
 
