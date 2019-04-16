@@ -1,17 +1,18 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { FirebaseListObservable } from 'angularfire2/database';
-import { Restaurant } from '../models/restaurant.model';
 import { RestaurantService } from '../restaurant.service';
+import { FirebaseListObservable } from 'angularfire2/database';
+import { Router } from '@angular/router';
+import { Restaurant } from '../models/restaurant.model';
+
+
 
 @Component({
-  selector: 'app-show-restaurants',
-  templateUrl: './show-restaurants.component.html',
-  styleUrls: ['./show-restaurants.component.css'],
+  selector: 'app-restaurant-list',
+  templateUrl: './restaurant-list.component.html',
+  styleUrls: ['./restaurant-list.component.css'],
   providers: [RestaurantService]
 })
-
-export class ShowRestaurantsComponent implements OnInit {
+export class RestaurantListComponent implements OnInit {
 
   restaurantList: FirebaseListObservable<any[]>;
   selectedRestaurant = null;
@@ -46,4 +47,7 @@ export class ShowRestaurantsComponent implements OnInit {
   goToSearchRestaurantPage() {
     this.router.navigate(['search-restaurant']);
   }
+
+  
+
 }
