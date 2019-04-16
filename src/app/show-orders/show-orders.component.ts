@@ -14,6 +14,7 @@ import { OrderService } from '../order.service';
 export class ShowOrdersComponent implements OnInit {
 
   orderList: FirebaseListObservable<any[]>;
+  orderListUser: FirebaseListObservable<any[]>;
   selectedOrder = null;
   selectedOrderToDelete = null;
 

@@ -14,7 +14,7 @@ export class UserService {
     return this.userList;
   }
 
-  getUserById(userId: string) {
+  getUserByKey(userId: string) {
     return this.database.object('/users/' + userId);
   }
 
@@ -23,7 +23,7 @@ export class UserService {
   }
 
   updateUser(localUpdatedUser){
-    var userInFirebase = this.getUserById(localUpdatedUser.$key);
+    var userInFirebase = this.getUserByKey(localUpdatedUser.$key);
     userInFirebase.update({first_name: localUpdatedUser.firstName,
                            last_name: localUpdatedUser.lastName,
                            email_address: localUpdatedUser.emailAddress,
@@ -32,7 +32,11 @@ export class UserService {
   }
 
   deleteUser(userToBeDeleted){
-    var userToDeleteInFirebase = this.getUserById(userToBeDeleted.$key);
+    var userToDeleteInFirebase = this.getUserByKey(userToBeDeleted.$key);
     userToDeleteInFirebase.remove();
+  }
+
+  deleteAllUsers() {
+    this.userList.remove()
   }
 }

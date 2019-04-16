@@ -5,6 +5,7 @@ import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/databa
 @Injectable()
 export class RestaurantService {
   restaurantList: FirebaseListObservable<any[]>;
+  restaurantListForCuisine: FirebaseListObservable<any[]>;
 
   constructor(private database: AngularFireDatabase) {
     this.restaurantList = database.list('restaurants');
@@ -14,8 +15,17 @@ export class RestaurantService {
     return this.restaurantList;
   }
 
-  getRestaurantById(restaurantId: string) {
-    return this.database.object('/restaurants/' + restaurantId + '/jadegarden');
+  getRestaurantsForCuisine(cuisine: string) {
+    this.restaurantListForCuisine = this.database.list('/restaurants', {
+      query: {
+        orderByChild: 'restaurantName',
+        equalTo: cuisine
+      }
+    });
+  }
+
+  getRestaurantByKey(restaurantKey: string) {
+    return this.database.object('/restaurants/' + restaurantKey);
   }
 
   addRestaurant(newRestaurant: Restaurant) {
@@ -23,7 +33,7 @@ export class RestaurantService {
   }
 
   updateRestaurant(localUpdatedRestaurant){
-    var restaurantInFirebase = this.getRestaurantById(localUpdatedRestaurant.$key);
+    var restaurantInFirebase = this.getRestaurantByKey(localUpdatedRestaurant.$key);
     restaurantInFirebase.update({restaurant_name: localUpdatedRestaurant.restaurantName,
                                  street_address: localUpdatedRestaurant.streetAddress,
                                  hours: localUpdatedRestaurant.hours,
@@ -33,7 +43,11 @@ export class RestaurantService {
   }
 
   deleteRestaurant(restaurantToBeDeleted){
-    var restaurantToDeleteInFirebase = this.getRestaurantById(restaurantToBeDeleted.$key);
+    var restaurantToDeleteInFirebase = this.getRestaurantByKey(restaurantToBeDeleted.$key);
     restaurantToDeleteInFirebase.remove();
+  }
+
+  deleteAllRestaurants() {
+    this.restaurantList.remove()
   }
 }
