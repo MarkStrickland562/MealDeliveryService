@@ -20,7 +20,7 @@ export class ShowOrdersComponent implements OnInit {
   selectedOrder = null;
   selectedOrderToDelete = null;
 
-  constructor(private router: Router, private orderService: OrderService){}
+  constructor(private router: Router, private orderService: OrderService, private restaurantService: RestaurantService){}
 
   ngOnInit() {
     this.orderList = this.orderService.getOrders();
