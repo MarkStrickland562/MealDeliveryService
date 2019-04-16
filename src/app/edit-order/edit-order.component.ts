@@ -16,7 +16,7 @@ import { OrderService } from '../order.service';
 
 export class EditOrderComponent implements OnInit {
 
-  orderId: string;
+  orderKey: string;
   orderToUpdate;
 
   constructor(
@@ -27,9 +27,9 @@ export class EditOrderComponent implements OnInit {
 
   ngOnInit() {
     this.route.params.forEach((urlParameters) => {
-      this.orderId = urlParameters['id'];
+      this.orderKey = urlParameters['id'];
     });
-    this.orderService.getOrderById(this.orderId).subscribe(dataLastEmittedFromObserver => {
+    this.orderService.getOrderByKey(this.orderKey).subscribe(dataLastEmittedFromObserver => {
       this.orderToUpdate = dataLastEmittedFromObserver;
     })
   }
@@ -39,7 +39,7 @@ export class EditOrderComponent implements OnInit {
   }
 
   updateOrder(orderToUpdate) {
-    if (orderToUpdate.orderKey != "" && orderToUpdate.orderUserKey != "" && Date.parse(orderToUpdate.deliveryDateTime.toString()) != 0 && Date.parse(orderToUpdate.orderDateTime.toString()) != 0 && orderToUpdate.restaurantKey != "" && orderToUpdate.orderDetails.length > 0) {
+    if (orderToUpdate.orderUserKey != "" && Date.parse(orderToUpdate.deliveryDateTime.toString()) != 0 && Date.parse(orderToUpdate.orderDateTime.toString()) != 0 && orderToUpdate.restaurantKey != "" && orderToUpdate.orderDetails.length > 0) {
       this.orderService.updateOrder(orderToUpdate);
       this.goToShowOrderPage();
     } else {
