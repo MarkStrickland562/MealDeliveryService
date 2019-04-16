@@ -2,13 +2,15 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FirebaseListObservable } from 'angularfire2/database';
 import { Order } from '../models/order.model';
+import { Restaurant } from '../models/restaurant.model';
 import { OrderService } from '../order.service';
+import { RestaurantService } from '../restaurant.service';
 
 @Component({
   selector: 'app-show-orders',
   templateUrl: './show-orders.component.html',
   styleUrls: ['./show-orders.component.css'],
-  providers: [OrderService]
+  providers: [OrderService, RestaurantService]
 })
 
 export class ShowOrdersComponent implements OnInit {
