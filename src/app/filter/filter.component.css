@@ -2,10 +2,12 @@
   border: 1px solid black;
   height: 100%;
   margin: 5px;
+  
 }
 
 .wrapper {
   min-width: 200px;
   width:20%;
   display: inline-block;
+  margin-top: 40px;
 }

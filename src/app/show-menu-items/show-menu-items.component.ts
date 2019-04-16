@@ -21,9 +21,9 @@ export class ShowMenuItemsComponent implements OnInit {
   constructor(private route: ActivatedRoute, private location: Location, private restaurantService: RestaurantService) { }
 
     ngOnInit() {
-  //   this.route.params.forEach((urlParameters) => {
-  //     this.restaurantKey = urlParameters['restaurantId'];
-  //   });
+    this.route.params.forEach((urlParameters) => {
+      this.restaurantKey = urlParameters['restaurantId'];
+    });
 
   //   this.restaurantService.getRestaurantByKey(this.restaurantKey).subscribe(dataLastEmittedFromObserver => {
   //     let items: MenuItem[] = [];
