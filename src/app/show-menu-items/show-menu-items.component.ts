@@ -14,7 +14,7 @@ import { RestaurantService } from '../restaurant.service';
 })
 export class ShowMenuItemsComponent implements OnInit {
 
-  restaurantId: string;
+  restaurantKey: string;
   restaurantToDisplay: Restaurant;
   menuItems: MenuItem[] = [];
 
@@ -22,10 +22,10 @@ export class ShowMenuItemsComponent implements OnInit {
 
   ngOnInit() {
     this.route.params.forEach((urlParameters) => {
-      this.restaurantId = urlParameters['restaurantId'];
+      this.restaurantKey = urlParameters['restaurantId'];
     });
 
-    this.restaurantService.getRestaurantById(this.restaurantId).subscribe(dataLastEmittedFromObserver => {
+    this.restaurantService.getRestaurantByKey(this.restaurantKey).subscribe(dataLastEmittedFromObserver => {
       let items: MenuItem[] = [];
 
       for(let i = 0; i < dataLastEmittedFromObserver.menu.menuItems.length; i++){
@@ -34,16 +34,14 @@ export class ShowMenuItemsComponent implements OnInit {
         for(let j = 0; j < dataLastEmittedFromObserver.menu.menuItems[i].menuSubItems.length; j++){
           subItems.push(dataLastEmittedFromObserver.menu.menuItems[i].menuSubItems[j]);
         }
-        let newItem = new MenuItem(dataLastEmittedFromObserver.menu.menuItems[i].menuItemKey,
-                     dataLastEmittedFromObserver.menu.menuItems[i].menuItemName,
-                     dataLastEmittedFromObserver.menu.menuItems[i].cost,
-                     dataLastEmittedFromObserver.menu.menuItems[i].preparationTime,
-                     subItems);
+        let newItem = new MenuItem(dataLastEmittedFromObserver.menu.menuItems[i].menuItemName,
+                                   dataLastEmittedFromObserver.menu.menuItems[i].cost,
+                                   dataLastEmittedFromObserver.menu.menuItems[i].preparationTime,
+                                   subItems);
         items.push(newItem);
         this.menuItems.push(newItem);
       }
       this.restaurantToDisplay = new Restaurant(
-        dataLastEmittedFromObserver.restaurantKey,
                      dataLastEmittedFromObserver.restaurantName,
                      dataLastEmittedFromObserver.streetAddress,
                      dataLastEmittedFromObserver.hours,
