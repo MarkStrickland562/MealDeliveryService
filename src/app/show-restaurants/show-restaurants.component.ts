@@ -17,8 +17,6 @@ export class ShowRestaurantsComponent implements OnInit {
   selectedRestaurant = null;
   selectedRestaurantToDelete = null;
 
-  restaurants = ["Jade Garden", "Panda Express", "Canlis", "Olive Garden", "The Keg", "The Old Spaghetti Factory", "The Cheesecake Factory"];
-
   constructor(private router: Router, private restaurantService: RestaurantService){}
 
   ngOnInit() {

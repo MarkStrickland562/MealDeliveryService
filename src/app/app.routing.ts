@@ -102,6 +102,10 @@ const appRoutes: Routes = [
   {
     path: 'search-order',
     component: SearchUserComponent
+  },
+  {
+    path: 'restaurants',
+    component: ShowRestaurantsComponent
   }
 ];
 

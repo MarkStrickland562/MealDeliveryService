@@ -3,7 +3,11 @@ import { Router } from '@angular/router';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Location } from '@angular/common';
 import { Order } from '../models/order.model';
+<<<<<<< HEAD
+// import { OrderDetail } from '../models/orderDetail.model';
+=======
 import { OrderItem } from '../models/orderItem.model';
+>>>>>>> master
 import { User } from '../models/user.model';
 import { OrderService } from '../order.service';
 
