@@ -1,5 +1,4 @@
 .restaurants {
-  width: 80%;
   display: grid;
   grid-template-columns: 1fr;
 }
@@ -30,4 +29,8 @@ img {
   height: 100px;
   width: 150px;
   border: 1px solid black;
+}
+
+img:hover {
+  zoom: 110%;
 }
