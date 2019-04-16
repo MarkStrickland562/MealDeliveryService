@@ -1,0 +1,11 @@
+<div class="restaurants">
+    <div class="list">
+      <!-- <div *ngFor="let restaurant of restaurantList | async">
+        {{restaurant.restaurantName}}
+      </div> -->
+      <div class="restaurantBlock" *ngFor="let restaurant of restaurants">
+        <img> <p>{{restaurant}}</p><p>Cuisine Type:</p><p>Price:</p>
+      </div>
+    </div>
+  </div>
+  
