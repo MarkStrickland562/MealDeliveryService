@@ -7,4 +7,23 @@ export class Order {
                public restaurantKey: string,
                public orderItems: OrderItem[],
                public totalCost: number) {}
+
+  addNewOrderItem(newItem: OrderItem){
+    let added = false;
+    if(this.orderItems.length > 0){
+      for(let i = 0; i< this.orderItems.length; i++){
+        if(this.orderItems[i].menuItem == newItem.menuItem){
+          this.orderItems[i].quantity++;
+          added = true;
+          break;
+        }
+      }
+    }
+    if (added == false)
+    {
+      this.orderItems.push(newItem);
+    }
+    console.log(this.totalCost);
+    this.totalCost += newItem.cost;
+  }
 }
