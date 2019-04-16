@@ -14,7 +14,7 @@ import { RestaurantService } from '../restaurant.service';
 })
 export class ShowMenuItemsComponent implements OnInit {
 
-  restaurantKey: string;
+  restaurantId: string;
   restaurantToDisplay: Restaurant;
   menuItems: MenuItem[] = [];
 
@@ -22,34 +22,35 @@ export class ShowMenuItemsComponent implements OnInit {
 
   ngOnInit() {
     this.route.params.forEach((urlParameters) => {
-      this.restaurantKey = urlParameters['restaurantId'];
+      this.restaurantId = urlParameters['restaurantId'];
     });
 
-    this.restaurantService.getRestaurantByKey(this.restaurantKey).subscribe(dataLastEmittedFromObserver => {
+    this.restaurantService.getRestaurantByKey(this.restaurantId).subscribe(dataLastEmittedFromObserver => {
+//      let restaurant = dataLastEmittedFromObserver;
       let items: MenuItem[] = [];
 
-      for(let i = 0; i < dataLastEmittedFromObserver.menu.menuItems.length; i++){
+      for(let i = 0; i < dataLastEmittedFromObserver.menu_items.length; i++){
         let subItems: string[] = [];
 
-        for(let j = 0; j < dataLastEmittedFromObserver.menu.menuItems[i].menuSubItems.length; j++){
-          subItems.push(dataLastEmittedFromObserver.menu.menuItems[i].menuSubItems[j]);
+        for(let j = 0; j < dataLastEmittedFromObserver.menu_items[i].menu_sub_items.length; j++){
+          subItems.push(dataLastEmittedFromObserver.menu_items[i].menu_sub_items[j]);
         }
-        let newItem = new MenuItem(dataLastEmittedFromObserver.menu.menuItems[i].menuItemName,
-                                   dataLastEmittedFromObserver.menu.menuItems[i].cost,
-                                   dataLastEmittedFromObserver.menu.menuItems[i].preparationTime,
-                                   subItems);
+        let newItem = new MenuItem(dataLastEmittedFromObserver.menu_items[i].menu_item_name,
+                     dataLastEmittedFromObserver.menu_items[i].cost,
+                     dataLastEmittedFromObserver.menu_items[i].preparation_time,
+                     subItems);
+
         items.push(newItem);
         this.menuItems.push(newItem);
       }
       this.restaurantToDisplay = new Restaurant(
-                     dataLastEmittedFromObserver.restaurantName,
-                     dataLastEmittedFromObserver.streetAddress,
+                     dataLastEmittedFromObserver.restaurant_name,
+                     dataLastEmittedFromObserver.street_address,
                      dataLastEmittedFromObserver.hours,
                      dataLastEmittedFromObserver.website,
-                     dataLastEmittedFromObserver.menuType,
+                     dataLastEmittedFromObserver.cuisine,
                      items);
-
-      console.log(this.restaurantToDisplay);
     });
   }
 }
+
