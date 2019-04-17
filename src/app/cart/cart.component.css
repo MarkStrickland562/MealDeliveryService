@@ -1,0 +1,5 @@
+.wrapper {
+  grid-template-columns: 1fr;
+  display: grid;
+  margin: 40px;
+}

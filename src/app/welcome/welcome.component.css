@@ -1,5 +1,23 @@
 #entryLink {
+    color: white;
     text-align: center;
     height: 500px;
     padding-top: 200px;
+}
+
+h1 {
+    cursor: pointer;
+}
+
+.pageWrapper {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1536510233921-8e5043fce771?ixlib=rb-1.2.1&auto=format&fit=crop&w=1971&q=80');
+    height: 100vh;
+    background-repeat:no-repeat;
+    background-position: center center;
+    background-size: cover;
+    position: relative;
+}
+
+h1:hover {
+    zoom: 1.5;
 }
