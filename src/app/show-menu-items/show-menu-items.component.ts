@@ -20,12 +20,30 @@ export class ShowMenuItemsComponent implements OnInit {
 
   userKey: string = '1';
   restaurantKey: string;
+  orderKey: string;
   restaurantToDisplay: Restaurant;
   menuItems: MenuItem[] = [];
+  // currentOrder: Order;
+  // orderItems: OrderItem[] = [];
 
   constructor(private route: ActivatedRoute, private location: Location, private restaurantService: RestaurantService, private orderService: OrderService) { }
 
   ngOnInit() {
+
+    // this.orderService.getOrders().subscribe(snapshot => {
+    //
+    // // TODO: add order state
+    //
+    //   for(let i = 0; i < snapshot.length; i++)
+    //     if(snapshot[i].restaurantKey === this.restaurantKey){
+    //
+    //       //currentOrder = new Order();
+    //       orderKey = snapshot[i].$key;
+    //       break;
+    //     }
+    // }
+
+
     this.route.params.forEach((urlParameters) => {
       this.restaurantKey = urlParameters['restaurantKey'];
     });
@@ -59,7 +77,9 @@ export class ShowMenuItemsComponent implements OnInit {
   }
 
   addToCart(menuItemToAdd: MenuItem){
-    this.orderService.getOrders().subscribe(snapshot => {
+    let timesAdded=0;
+    let key = null;
+    let subscription = this.orderService.getOrders().subscribe(snapshot => {
 
 // TODO: add order state
 
@@ -71,15 +91,25 @@ export class ShowMenuItemsComponent implements OnInit {
         }
 
       let newOrderItem = new OrderItem(menuItemToAdd.menuItemName, 1, parseInt(menuItemToAdd.menuItemCost));
-
+console.log(order);
       if(order != null){
-        this.orderService.addOrderItem(order.$key, newOrderItem);
+        if(timesAdded===0){
+          console.log('add order items');
+          this.orderService.addOrderItem(order.$key, newOrderItem);
+          timesAdded++;
+        }
       }
       else //if(order == null)
       {
-        let newOrder = new Order(this.userKey, new Date(), new Date(), this.restaurantKey, [], 0);
-        let key = this.orderService.addOrder(newOrder);
+        //if(!key)
+        //{
+          console.log('add new order with items');
+          let newOrder = new Order(this.userKey, new Date(), new Date(), this.restaurantKey, [], 0);
+          newOrder.orderItems.push(newOrderItem);
+          key = this.orderService.addOrder(newOrder);
+        //}
       }
+      subscription.unsubscribe();
     })
   }
 }
