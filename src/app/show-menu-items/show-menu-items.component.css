@@ -61,3 +61,7 @@ button {
   right: 0;
   bottom: 0;
 }
+
+#cartButton {
+  float: left;
+}
