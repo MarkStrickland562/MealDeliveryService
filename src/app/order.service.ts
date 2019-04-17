@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Order } from './models/order.model';
+import { OrderItem } from './models/orderItem.model';
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 
 @Injectable()
@@ -24,12 +25,32 @@ export class OrderService {
     });
   }
 
+  // getOrderByRestaurantKey(restaurantKey: string){
+  //   this.getOrders().subscribe(snapshot => {
+  //     snapshot.forEach(order => {
+  //       if(order.restaurantKey == restaurantKey){
+  //         console.log(order.$key);
+  //         return order;
+  //       }
+  //     })
+  //     return null;
+  //   })
+  // }
+
   getOrderByKey(orderKey: string) {
     return this.database.object('/orders/' + orderKey);
   }
 
   addOrder(newOrder: Order) {
-    this.orderList.push(newOrder);
+    var newRef = this.orderList.push(newOrder);
+    return newRef.key;
+  }
+
+  addOrderItem(orderKey: string, newOrderItem: OrderItem) {
+
+    let ref = `orders/${orderKey}/order_items/`;
+    console.log(newOrderItem);
+    //this.database.list(ref).push(newOrderItem);
   }
 
   updateOrder(localUpdatedOrder){

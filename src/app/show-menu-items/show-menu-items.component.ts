@@ -7,24 +7,23 @@ import { Order }  from '../models/order.model';
 import { OrderItem }  from '../models/orderItem.model';
 import { Restaurant }  from '../models/restaurant.model';
 import { RestaurantService } from '../restaurant.service';
-import { ShoppingCartService } from '../shopping-cart.service';
+import { OrderService } from '../order.service';
 
 
 @Component({
   selector: 'app-show-menu-items',
   templateUrl: './show-menu-items.component.html',
   styleUrls: ['./show-menu-items.component.css'],
-  providers: [RestaurantService, ShoppingCartService]
+  providers: [RestaurantService, OrderService]
 })
 export class ShowMenuItemsComponent implements OnInit {
 
-  order: Order = null; // the index in ORDERS
   userKey: string = '1';
   restaurantKey: string;
   restaurantToDisplay: Restaurant;
   menuItems: MenuItem[] = [];
 
-  constructor(private route: ActivatedRoute, private location: Location, private restaurantService: RestaurantService, private shoppingCartService: ShoppingCartService) { }
+  constructor(private route: ActivatedRoute, private location: Location, private restaurantService: RestaurantService, private orderService: OrderService) { }
 
   ngOnInit() {
     this.route.params.forEach((urlParameters) => {
@@ -60,21 +59,27 @@ export class ShowMenuItemsComponent implements OnInit {
   }
 
   addToCart(menuItemToAdd: MenuItem){
-    if(this.order === null){
-      this.order = this.shoppingCartService.getOrder(this.restaurantKey);
-    }
+    this.orderService.getOrders().subscribe(snapshot => {
 
-    let newOrderItem = new OrderItem(menuItemToAdd.menuItemName, 1, parseInt(menuItemToAdd.menuItemCost));
+// TODO: add order state
 
-    if(this.order === null){
-      let newOrder = new Order(this.userKey, new Date(), new Date(), this.restaurantKey, [], 0);
-      this.shoppingCartService.addNewOrder(newOrder);
-      this.order = newOrder;
-    }
+      let order;
+      for(let i = 0; i < snapshot.length; i++)
+        if(snapshot[i].restaurantKey === this.restaurantKey){
+          order = snapshot[i];
+          break;
+        }
 
-    this.order.addNewOrderItem(newOrderItem);
+      let newOrderItem = new OrderItem(menuItemToAdd.menuItemName, 1, parseInt(menuItemToAdd.menuItemCost));
 
-    console.log(this.order);
-
+      if(order != null){
+        this.orderService.addOrderItem(order.$key, newOrderItem);
+      }
+      else //if(order == null)
+      {
+        let newOrder = new Order(this.userKey, new Date(), new Date(), this.restaurantKey, [], 0);
+        let key = this.orderService.addOrder(newOrder);
+      }
+    })
   }
 }
