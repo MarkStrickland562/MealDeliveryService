@@ -6,7 +6,8 @@ export class Order {
                public deliveryDateTime: Date = new Date(),
                public restaurantKey: string,
                public orderItems: OrderItem[],
-               public totalCost: number) {}
+               public totalCost: number,
+               public status: string) {}
 
   addNewOrderItem(newItem: OrderItem){
     let added = false;
