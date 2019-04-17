@@ -98,8 +98,22 @@ console.log(dataLastEmittedFromObserver);
 
       let newOrderItem = new OrderItem(menuItemToAdd.menuItemName, 1, parseInt(menuItemToAdd.menuItemCost));
       if(order != null){
-        if(timesAdded===0){console.log('add order items');
-          this.orderService.addOrderItem(order.$key, newOrderItem);
+        let orderItems: OrderItem[] = [];
+        if(timesAdded===0){
+          console.log('add order items');
+
+          console.log(order.orderItems);
+          for(let i=0; i < order.orderItems.length; i++){
+            let cost = order.orderItems[i].cost;
+            let menuItem = order.orderItems[i].menuItem;
+            let quantity = order.orderItems[i].quantity;
+            let orderItem = new OrderItem(menuItem, quantity, cost);
+            orderItems.push(orderItem);
+          }
+          orderItems.push(newOrderItem);
+          this.orderService.updateOrderItems(order.$key, orderItems);
+          //this.orderService.addOrderItem(order.$key, newOrderItem);
+
           this.orderService.updateOrderCost(order.$key, order.totalCost + newOrderItem.cost);
           timesAdded++;
         }
