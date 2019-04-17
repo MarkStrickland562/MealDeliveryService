@@ -27,9 +27,9 @@ export class NewUserComponent implements OnInit {
       this.router.navigate(['users']);
   }
 
-  addUser(firstName: string, lastName: string, emailAddress: string , deliveryAddress: string, phoneNumber: string) {
-    if (firstName != "" && lastName != "" && emailAddress != "" && deliveryAddress != "" && phoneNumber != "") {
-      let newUser: User = new User(firstName, lastName, emailAddress, deliveryAddress, phoneNumber);
+  addUser(firstName: string, lastName: string, emailAddress: string , deliveryAddress: string, phoneNumber: string, password: string) {
+    if (firstName != "" && lastName != "" && emailAddress != "" && deliveryAddress != "" && phoneNumber != "" && password != "") {
+      let newUser: User = new User(firstName, lastName, emailAddress, deliveryAddress, phoneNumber, password);
       this.userService.addUser(newUser);
       this.goToShowUserPage();
     } else {

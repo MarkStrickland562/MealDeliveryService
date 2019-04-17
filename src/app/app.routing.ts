@@ -53,11 +53,11 @@ const appRoutes: Routes = [
     component: NewUserComponent
   },
   {
-    path: 'edit-user',
+    path: 'edit-user/:id',
     component: EditUserComponent
   },
   {
-    path: 'delete-user',
+    path: 'delete-user/:id',
     component: DeleteUserComponent
   },
   {
@@ -73,11 +73,11 @@ const appRoutes: Routes = [
     component: NewUserComponent
   },
   {
-    path: 'edit-restaurant',
+    path: 'edit-restaurant/:id',
     component: EditUserComponent
   },
   {
-    path: 'delete-restaurant',
+    path: 'delete-restaurant/:id',
     component: DeleteUserComponent
   },
   {
@@ -93,11 +93,11 @@ const appRoutes: Routes = [
     component: NewUserComponent
   },
   {
-    path: 'edit-order',
+    path: 'edit-order/:id',
     component: EditUserComponent
   },
   {
-    path: 'delete-order',
+    path: 'delete-order/:id',
     component: DeleteUserComponent
   },
   {

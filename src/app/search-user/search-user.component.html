@@ -1,3 +1,24 @@
-<p>
-  search-user works!
-</p>
+<!DOCTYPE html>
+<html>
+<body>
+  <div class="wrapper">
+    <div id="page-content">
+        <h1 id="pageTitle">SEARCH FOR USERS</h1>
+      <label>First Name:</label>
+      <input [(ngModel)]="searchStringFirst">
+      <label>Last Name:</label>
+      <input [(ngModel)]="searchStringLast">
+      <div *ngIf="searchStringFirst">
+        <ul class="list-group list-group-horizontal">
+          <li class="list-group-item list-group-item-success" *ngFor="let foundUser of userList | async | SearchUserFirstNamePipe : searchStringFirst">First Name: {{foundUser.firstName}}<br>Last Name: {{foundUser.lastName}}<br>Email Address: {{foundUser.emailAddress}}<br>Delivery Address: {{foundUser.deliveryAddress}}<br>Phone: {{foundUser.phoneNumber}}<br><br><button class="button" (click)="goToEditUserPage(foundUser)">Update</button>  <button class="button" (click)="goToDeleteUserPage(foundUser)">Delete</button></li>
+        </ul>
+      </div>
+      <div *ngIf="searchStringLast">
+        <ul class="list-group list-group-horizontal">
+          <li class="list-group-item list-group-item-success" *ngFor="let foundUser of userList | async | SearchUserLastNamePipe : searchStringLast">First Name: {{foundUser.firstName}}<br>Last Name: {{foundUser.lastName}}<br>Email Address: {{foundUser.emailAddress}}<br>Delivery Address: {{foundUser.deliveryAddress}}<br>Phone: {{foundUser.phoneNumber}}<br><br><button class="button" (click)="goToEditUserPage(foundUser)">Update</button>  <button class="button" (click)="goToDeleteUserPage(foundUser)">Delete</button></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

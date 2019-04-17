@@ -1,3 +1,23 @@
-<p>
-  edit-user works!
-</p>
+<!DOCTYPE html>
+<html>
+  <body>
+    <div class="wrapper">
+      <div id="page-content">
+        <h1 id="pageTitle">UPDATE USER</h1>
+        <label>First Name:</label>
+        <input [ngModel]="userToUpdate?.firstName" (ngModelChange)="userToUpdate.firstName = $event" />
+        <label>Last Name:</label>
+        <input [ngModel]="userToUpdate?.lastName" (ngModelChange)="userToUpdate.lastName = $event" />
+        <label>Email Address:</label>
+        <input [ngModel]="userToUpdate?.emailAddress" (ngModelChange)="userToUpdate.emailAddress = $event" />
+        <label>Delivery Address:</label>
+        <input [ngModel]="userToUpdate?.deliveryAddress" (ngModelChange)="userToUpdate.deliveryAddress = $event" />
+        <label>Phone:</label>
+        <input [ngModel]="userToUpdate?.phoneNumber" (ngModelChange)="userToUpdate.phoneNumber = $event" />
+        <label>Password:</label>
+        <input [ngModel]="userToUpdate?.password" (ngModelChange)="userToUpdate.password = $event" />
+        <button class="button" (click)="updateUser(userToUpdate)">Done</button>
+      </div>
+    </div>
+  </body>
+</html>

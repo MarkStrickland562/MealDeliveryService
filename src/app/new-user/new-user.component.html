@@ -1,3 +1,23 @@
-<p>
-  new-user works!
-</p>
+<!DOCTYPE html>
+<html>
+  <body>
+    <div class="wrapper">
+      <div id="page-content">
+        <h1 id="pageTitle">ADD NEW USER</h1>
+        <label>Enter First Name:</label>
+        <input #newFirstName>
+        <label>Enter Last Name:</label>
+        <input #newLastName>
+        <label>Enter Email Address:</label>
+        <input #newEmailAddress>
+        <label>Enter Delivery Address:</label>
+        <input #newDeliveryAddress>
+        <label>Enter Phone Number:</label>
+        <input #newPhoneNumber>
+        <label>Enter Password:</label>
+        <input #newPassword>
+        <button class="button" (click)="addUser(newFirstName.value, newLastName.value, newEmailAddress.value, newDeliveryAddress.value, newPhoneNumber.value, newPassword.value); newFirstName.value=''; newLastName.value=''; newEmailAddress.value=''; newDeliveryAddress.value=''; newPhoneNumber.value=''; newPassword.value=''">Add User</button>
+      </div>
+    </div>
+  </body>
+</html>
