@@ -50,17 +50,12 @@ export class OrderService {
 
   addOrderItem(orderKey: string, newOrderItem: OrderItem) {
     let ref = `orders/${orderKey}/orderItems/`;
-    console.log(newOrderItem);
     this.database.list(ref).push(newOrderItem);
-    //this.updateOrderCost(orderKey, newOrderItem.cost);
   }
 
   updateOrderCost(orderKey: string, cost: number){
     var orderInFirebase = this.database.object('/orders/' + orderKey)
-    // var orderInFirebase = this.getOrderByKey(orderKey);
-    console.log('updating total cost ' + orderKey);
-    console.log(orderInFirebase.totalCost);
-    orderInFirebase.update({totalCost:((orderInFirebase.totalCost) + cost)});
+    orderInFirebase.update({totalCost: cost});
   }
 
   updateOrder(localUpdatedOrder){
