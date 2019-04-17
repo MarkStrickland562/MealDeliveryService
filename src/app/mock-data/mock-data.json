@@ -2,28 +2,28 @@
   "users":
   [
     {
-      "first_name": "Mark",
-      "last_name": "Strickland",
-      "email_address": "markstrickland562@hotmail.com",
-      "delivery_address": "511 East Roy Street, #408, Seattle, WA 98102",
-      "phone_number": "2067694978"
+      "firstName": "Mark",
+      "lastName": "Strickland",
+      "emailAddress": "markstrickland562@hotmail.com",
+      "deliveryAddress": "511 East Roy Street, #408, Seattle, WA 98102",
+      "phoneNumber": "2067694978"
     }
   ],
   "restaurants":
     [
       {
-        "restaurant_name": "Jade Garden",
-        "street_address": "424 7th Ave S, Seattle, WA 98104",
+        "restaurantName": "Jade Garden",
+        "streetAddress": "424 7th Ave S, Seattle, WA 98104",
         "hours": "11:00 AM - 10:00 PM",
         "website": "www.jadegardenseattle.com",
         "cuisine": "Chinese",
-        "menu_items":
+        "menuItems":
           [
             {
-              "menu_item_name": "Mandarin Chicken",
-              "cost": "10",
-              "preparation_time": "30",
-              "menu_sub_items": ["Chicken", "Rice", "Miso Soup"]
+              "menuItemName": "Mandarin Chicken",
+              "menuItemCost": "10",
+              "preparationTime": "30",
+              "menuSubItems": ["Chicken", "Rice", "Miso Soup"]
             }
           ]
       }
@@ -31,25 +31,26 @@
   "orders":
   [
     {
-      "order_user":
+      "orderUserKey":
         {
           "0": true
         },
-      "order_date_time": "2019-04-14 17:00:00",
-      "delivery_date_time": "2019-04-14 19:00:00",
-      "restaurant":
+      "orderDateTime": "2019-04-14 17:00:00",
+      "deliveryDateTime": "2019-04-14 19:00:00",
+      "restaurantKey":
         {
           "0": true
         },
-      "order_items":
+      "orderItems":
         [
           {
-            "item": "Mandarin Chicken",
+            "menuItem": "Mandarin Chicken",
             "quantity": "2",
             "cost": "10"
           }
         ],
-      "total_cost": "20"
+      "totalCost": "20",
+      "status": "COMPLETED"
     }
   ]
 }
