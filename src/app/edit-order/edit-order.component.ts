@@ -39,7 +39,7 @@ export class EditOrderComponent implements OnInit {
   }
 
   updateOrder(orderToUpdate) {
-    if (orderToUpdate.orderUserKey != "" && Date.parse(orderToUpdate.deliveryDateTime.toString()) != 0 && Date.parse(orderToUpdate.orderDateTime.toString()) != 0 && orderToUpdate.restaurantKey != "" && orderToUpdate.orderDetails.length > 0) {
+    if (orderToUpdate.orderUserKey != "" && Date.parse(orderToUpdate.deliveryDateTime.toString()) != 0 && Date.parse(orderToUpdate.orderDateTime.toString()) != 0 && orderToUpdate.restaurantKey != "" && orderToUpdate.orderDetails.length > 0 && orderToUpdate.totalCost > 0 && status != "") {
       this.orderService.updateOrder(orderToUpdate);
       this.goToShowOrderPage();
     } else {

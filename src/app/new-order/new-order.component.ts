@@ -29,9 +29,9 @@ export class NewOrderComponent implements OnInit {
       this.router.navigate(['orders']);
   }
 
-  addOrder(orderUserKey: string, deliveryDateTime: Date = new Date(), orderDateTime: Date = new Date(), restaurantKey: string, orderItems: OrderItem[], totalCost: number) {
-    if (orderUserKey != "" && Date.parse(deliveryDateTime.toString()) != 0 && Date.parse(orderDateTime.toString()) != 0 && restaurantKey != "" && orderItems.length > 0) {
-      let newOrder: Order = new Order(orderUserKey, orderDateTime, deliveryDateTime, restaurantKey, orderItems, totalCost);
+  addOrder(orderUserKey: string, deliveryDateTime: Date = new Date(), orderDateTime: Date = new Date(), restaurantKey: string, orderItems: OrderItem[], totalCost: number, status: string) {
+    if (orderUserKey != "" && Date.parse(deliveryDateTime.toString()) != 0 && Date.parse(orderDateTime.toString()) != 0 && restaurantKey != "" && orderItems.length > 0 && status != "") {
+      let newOrder: Order = new Order(orderUserKey, orderDateTime, deliveryDateTime, restaurantKey, orderItems, totalCost, status);
       this.orderService.addOrder(newOrder);
       this.goToShowOrderPage();
     } else {
