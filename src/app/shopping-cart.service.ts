@@ -4,8 +4,11 @@ import { Order } from './models/order.model';
 
 @Injectable()
 export class ShoppingCartService {
+//  import { Order } from '.././models/order.model';
 
-  constructor() { }
+  public ORDERS: Order[];
+
+  //constructor() { }
 
   getOrder(restaurantKey: string){
     if(ORDERS.length > 0){
@@ -15,10 +18,16 @@ export class ShoppingCartService {
         }
       }
     }
+    console.log(ORDERS);
     return null;
   }
 
   addNewOrder(newOrder: Order){
+    console.log(ORDERS);
     ORDERS.push(newOrder);
+  }
+
+  getOrders(){
+    return ORDERS;
   }
 }
