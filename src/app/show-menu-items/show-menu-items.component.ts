@@ -24,7 +24,7 @@ export class ShowMenuItemsComponent implements OnInit {
   restaurantToDisplay: Restaurant;
   menuItems: MenuItem[] = [];
 
-  constructor(private route: ActivatedRoute, private location: Location, private restaurantService: RestaurantService, private shoppingCartService: ShoppingCartService) { }
+  constructor(private router: Router, private route: ActivatedRoute, private location: Location, private restaurantService: RestaurantService, private shoppingCartService: ShoppingCartService) { }
 
   ngOnInit() {
     this.route.params.forEach((urlParameters) => {
@@ -44,12 +44,13 @@ export class ShowMenuItemsComponent implements OnInit {
           subItems.push(dataLastEmittedFromObserver.menuItems[i].menuSubItems[j]);
         }
         let newItem = new MenuItem(dataLastEmittedFromObserver.menuItems[i].menuItemName,
-                     dataLastEmittedFromObserver.menuItems[i].cost,
+                     dataLastEmittedFromObserver.menuItems[i].menuItemCost,
                      dataLastEmittedFromObserver.menuItems[i].preparationTime,
                      subItems);
 
         items.push(newItem);
         this.menuItems.push(newItem);
+        console.log(this.menuItems)
       }
       this.restaurantToDisplay = new Restaurant(
                      dataLastEmittedFromObserver.restaurantName,
@@ -78,5 +79,8 @@ export class ShowMenuItemsComponent implements OnInit {
 
     console.log(this.order);
 
+  }
+  goToCart() {
+    this.router.navigate(['cart'])
   }
 }
