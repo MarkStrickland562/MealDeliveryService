@@ -20,4 +20,4 @@
   <p>Order Success!</p>
 </div> -->
 
-<div *ngFor="let order of orders | async"><div *ngIf="order.status=='INCOMPLETED'"><div *ngFor="let orderItem of order.orderItems">{{orderItem.menuItem}} {{orderItem.quantity}}</div>{{order.totalCost}}</div></div>
+<div *ngFor="let order of orders"><div *ngIf="order.status=='INCOMPLETED'"><div *ngFor="let orderItem of order.orderItems">{{orderItem.menuItem}} {{orderItem.quantity}}</div>{{order.totalCost}}</div></div>
