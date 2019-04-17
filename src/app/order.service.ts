@@ -53,8 +53,13 @@ export class OrderService {
     this.database.list(ref).push(newOrderItem);
   }
 
+  updateOrderItems(orderKey: string, orderItems: OrderItem[]) {
+    var orderInFirebase = this.database.object('/orders/' + orderKey);
+    orderInFirebase.update({orderItems: orderItems});
+  }
+
   updateOrderCost(orderKey: string, cost: number){
-    var orderInFirebase = this.database.object('/orders/' + orderKey)
+    var orderInFirebase = this.database.object('/orders/' + orderKey);
     orderInFirebase.update({totalCost: cost});
   }
 
