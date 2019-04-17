@@ -1,18 +1,19 @@
 
-<!-- <p class ="cartEmpty" *ngIf="cart is empty">You cart is empty</p> if cart is empty, show cart is empty-->
+<!-- <p class ="cartEmpty" *ngIf="item.order_items">You cart is empty</p> if cart is empty, show cart is empty-->
   
 
 <div class="wrapper">
   <!-- <div class="cartItem" *ngIf="cart is not empty"> If cart has items, show items in cart-->
     <h3>You Cart</h3>
-    <!-- <div *ngFor="order in cart"> for each order in the cart-->
-      <p>Restaurant Name</p>
-      <p></p>
-      <ul>
-        <!-- <li *ngFor="item in order"></li> show each item in order-->
-        <li>Each item in order</li>
-      </ul>
-      <button>Checkout</button>
+    <!-- <div *ngFor="item in order"> for each order in the cart-->
+      <p>Cart Item: {{item.order_items.item}}</p>
+      <p>Quanity:{{item.order_items.quantity}}</p>
+      <p>Total Price: {{item.total_cost}}</p>
+      <button (click)="orderSubmit()">Checkout</button>
     <!-- </div> -->
   <!-- </div> -->
+</div>
+
+<div *ngIf="order === true">
+  <p>Order Success!</p>
 </div>

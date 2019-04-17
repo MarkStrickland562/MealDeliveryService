@@ -1,26 +1,12 @@
-.footer {
-    height: 60px;
-    /* position: fixed; */
-    bottom: 0px;
-    border-top: 1px solid black;
-    width: 100%;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    background-color: #AAAAAA;
+#container {
+   min-height:100%;
+   position:relative;
 }
-
-#about {
-    margin-top: 10px;
-    height: 40px;
-    width: 70px;
-    border-radius: 10%;
-    background-color: green;
-    border: 1px solid lightgreen;
-    text-align: center;
-    vertical-align: middle;
-    padding-top: 5px;
+#body {
+   padding:10px;
 }
-
-#copyright {
-    margin-top: 30px;
+#footer {
+   position:absolute;
+   bottom:0;
+   width:100%;
 }
