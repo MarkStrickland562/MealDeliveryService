@@ -3,15 +3,17 @@
   
 
 <div class="wrapper">
-  <!-- <div class="cartItem" *ngIf="cart is not empty"> If cart has items, show items in cart-->
-    <h3>You Cart</h3>
-    <!-- <div *ngFor="item in order"> for each order in the cart-->
-      <p>Cart Item: {{item.order_items.item}}</p>
-      <p>Quanity:{{item.order_items.quantity}}</p>
-      <p>Total Price: {{item.total_cost}}</p>
+  <h3>You Cart</h3>
+  <div>
+    <h5>Restaurant: </h5>
+    <ul>
+      <li>Cart Item: {{order.menuItem}}</li>
+      <li>Quanity:{{order.quantity}}</li>
+      <li>Total Price: {{order.cost}}</li>
       <button (click)="orderSubmit()">Checkout</button>
-    <!-- </div> -->
-  <!-- </div> -->
+      <hr>
+    </ul>
+  </div>
 </div>
 
 <div *ngIf="order === true">
