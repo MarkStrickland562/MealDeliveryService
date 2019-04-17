@@ -48,6 +48,8 @@ export class RestaurantListComponent implements OnInit {
     this.router.navigate(['search-restaurant']);
   }
 
-  
+  goToMenuPage(restaurant) {
+    this.router.navigate(['restaurants', restaurant.$key])
+  }
 
 }

@@ -31,6 +31,8 @@ export class ShowMenuItemsComponent implements OnInit {
       this.restaurantKey = urlParameters['restaurantKey'];
     });
 
+    if (this.restaurantKey) {
+
     this.restaurantService.getRestaurantByKey(this.restaurantKey).subscribe(dataLastEmittedFromObserver => {
 //      let restaurant = dataLastEmittedFromObserver;
       let items: MenuItem[] = [];
@@ -58,7 +60,7 @@ export class ShowMenuItemsComponent implements OnInit {
                      items);
     });
   }
-
+}
   addToCart(menuItemToAdd: MenuItem){
     if(this.order === null){
       this.order = this.shoppingCartService.getOrder(this.restaurantKey);
