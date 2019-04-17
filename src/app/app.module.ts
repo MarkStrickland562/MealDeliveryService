@@ -43,6 +43,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { CarouselComponent } from './carousel/carousel.component';
 import { FilterComponent } from './filter/filter.component';
 import { RestaurantListComponent } from './restaurant-list/restaurant-list.component';
+import { CartComponent } from './cart/cart.component';
 
 export const firebaseConfig = {
   apiKey: masterFirebaseConfig.apiKey,
@@ -87,7 +88,8 @@ export const firebaseConfig = {
     NavbarComponent,
     CarouselComponent,
     FilterComponent,
-    RestaurantListComponent
+    RestaurantListComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,
