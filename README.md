@@ -14,18 +14,25 @@ This project is the team project for the javascript/Angular class at Epicodus co
 
 The application can be accessed through this URL: TBD
 
+## Specifications
+* An end-user can search for restaurants.
+* An end-user can select a restaurant from which to order a delivery.
+* An end-user can select menu items and the quantity of menu items from the restaurant's menu.
+* An end-user can add an order to their shopping cart for the menu items that they selected.
+* An end-user can view their shopping cart and complete their purchase.
+
 ## Technical Features
 * Angular 5
 * Typescript
 * Bootstrap
-* jQuery
-* Numerous external styling resources
-* xx model classes
-* xx child components
-* xx pipes
-* xx routes
-* xx services
-* xx API
+* Google Firebase Realtime Database
+* Font Awesome
+* 5 Model Classes
+* 33 Child Components
+* 4 Pipes
+* 20 Routes
+* 3 Services
+* 1 API
 
 ## Known Bugs
 No known bugs.
@@ -88,14 +95,71 @@ Create and populate the following scripts for the model classes:
     <th>Class Code</th>
   </tr>
   <tr>
-    <td></td>
-    <td></td>
-    <td></td>
+    <td>User</td>
+    <td>src/app/models/user.model.ts</td>
+    <td>export class User {<br>
+        constructor (public firstName:string,<br>
+                     public lastName: string,<br>
+                     public emailAddress: string,<br>
+                     public deliveryAddress: string,<br>
+                     public phoneNumber: string) {}<br>
+        }
+    </td>
+  </tr>
+  <tr>
+    <td>Restaurant</td>
+    <td>src/app/models/restaurant.model.ts</td>
+    <td>import { MenuItem } from './menuItem.model';<br>
+        export class Restaurant {<br>
+        constructor (public restaurantName: string,<br>
+                     public streetAddress: string,<br>
+                     public hours: string,<br>
+                     public website: string,<br>
+                     public cuisine: string,<br>
+                     public menuItems: MenuItem []) {}<br>
+        }<br>
+    </td>
+  </tr>    
+  <tr>
+    <td>Order</td>
+    <td>src/app/models/order.model.ts</td>
+    <td>import { OrderItem } from './orderItem.model';<br>
+        export class Order {<br>
+        constructor (public orderUserKey: string,<br>
+                     public orderDateTime: Date = new Date(),<br>
+                     public deliveryDateTime: Date = new Date(),<br>
+                     public restaurantKey: string,<br>
+                     public orderItems: OrderItem[],<br>
+                     public totalCost: number,<br>
+                     public status: string) {}<br>
+        }<br>
+    </td>
+  </tr>    
+  <tr>
+    <td>OrderItem</td>
+    <td>src/app/models/orderItem.model.ts</td>
+    <td>export class OrderItem {<br>
+        constructor (public menuItem: string,<br>
+                     public quantity: number,<br>
+                     public cost: number) {}<br>
+        }<br>
+    </td>
+  </tr>    
+  <tr>
+    <td>MenuItem</td>
+    <td>src/app/models/menuItem.model.ts</td>
+    <td>export class MenuItem {<br>
+        constructor (public menuItemName: string,<br>
+                     public menuItemCost: string,<br>
+                     public preparationTime: string,<br>
+                     public menuSubItems: string []) {}<br>
+        }<br>
+    </td>
   </tr>    
 </table>
 </details>
 
-###### 4) Develop mock data for each class.
+###### 4) Develop mock data for each class and load the data into Firebase (src/app/mock-data/mock-data.json).
 
 ###### 5) Create component templates for showing, adding, editing, deleting and searching for model-related objects.
 <details>
@@ -114,13 +178,63 @@ $ ng generate component about
 </td>
 </tr>
 <tr>
-<td></td>
+<td>User</td>
 <td>
-$ ng generate component show-<br>
-$ ng generate component new-<br>
-$ ng generate component edit-<br>
-$ ng generate component delete-<br>
-$ ng generate component search-
+$ ng generate component show-users<br>
+$ ng generate component new-user<br>
+$ ng generate component edit-user<br>
+$ ng generate component delete-user<br>
+$ ng generate component search-user
+</td>
+</tr>
+<tr>
+<td>Restaurant</td>
+<td>
+$ ng generate component show-restaurants<br>
+$ ng generate component new-restaurant<br>
+$ ng generate component edit-restaurant<br>
+$ ng generate component delete-restaurant<br>
+$ ng generate component search-restaurant
+</td>
+</tr>
+<tr>
+<td>Order</td>
+<td>
+$ ng generate component show-orders<br>
+$ ng generate component new-order<br>
+$ ng generate component edit-order<br>
+$ ng generate component delete-order<br>
+$ ng generate component search-order
+</td>
+</tr>
+<tr>
+<td>OrderDetail</td>
+<td>
+$ ng generate component show-order-details<br>
+$ ng generate component new-order-detail<br>
+$ ng generate component edit-order-detail<br>
+$ ng generate component delete-order-detail<br>
+$ ng generate component search-order-detail
+</td>
+</tr>
+<tr>
+<td>MenuItem</td>
+<td>
+$ ng generate component show-menu-items<br>
+$ ng generate component new-menu-items<br>
+$ ng generate component edit-menu-items<br>
+$ ng generate component delete-menu-items<br>
+$ ng generate component search-menu-items
+</td>
+</tr>
+<tr>
+<td>Carousel, Cart, Filter, Footer, Navbar, RestaurantList</td>
+<td>
+$ ng generate component carousel<br>
+$ ng generate component filter<br>
+$ ng generate component footer<br>
+$ ng generate component navbar<br>
+$ ng generate component restaurant-list
 </td>
 </tr>
 </table>
@@ -128,13 +242,173 @@ $ ng generate component search-
 
 ###### 6) Develop functional CRUD and Search views for all classes.
 ###### 7) Create pipes for use by the Search components.
+<details>
+  <summary>Click Here for Details</summary>
+  <table>
+    <tr>
+      <th>Pipe</th>
+      <th>Command</th>
+    </tr>
+    <tr>
+      <td>SearchRestaurantCuisinePipe/td>
+      <td>ng generate pipe search-restaurant-cuisine-pipe</td>
+    </tr>
+    <tr>
+      <td>SearchRestaurantNamePipe</td>
+      <td>ng generate pipe search-restaurant-name-pipe</td>
+    </tr>
+    <tr>
+      <td>SearchUserFirstNamePipe</td>
+      <td>ng generate pipe search-user-first-name-pipe</td>
+    </tr>
+    <tr>
+      <td>SearchUserLastNamePipe</td>
+      <td>ng generate pipe search-user-last-name-pipe</td>
+    </tr>
+  </table>
+</details>
+
 ###### 9) Add routes for the components.
-###### 10) Convert the mock data into JSON and load the data into a Firebase database.
-###### 11) Add services and dependency-injection for accessing the database.
-###### 12) Add an API call.
-###### 13) Add user authentication
-###### 14) Setup deployment to Firebase.
-###### 15) Deploy to firebase
+<details>
+  <summary>Click Here for Details</summary>
+  <table>
+    <tr>
+      <th>Path</th>
+      <th>Component</th>
+    </tr>
+    <tr>
+    <td></td>
+    <td>Welcome</td>
+    </tr>
+    <tr>
+    <td>main</td>
+    <td>Main</td>
+    </tr>
+    <tr>
+    <td>about</td>
+    <td>About</td>
+    </tr>
+    <tr>
+    <td>users</td>
+    <td>ShowUsers</td>
+    </tr>
+    <tr>
+    <td>new-user</td>
+    <td>NewUser</td>
+    </tr>
+    <tr>
+    <td>edit-user</td>
+    <td>EditUser</td>
+    </tr>
+    <tr>
+    <td>delete-user</td>
+    <td>DeleteUser</td>
+    </tr>
+    <tr>
+    <td>search-user</td>
+    <td>SearchUser</td>
+    </tr>
+    <tr>
+    <td>restaurants/:restaurantKey</td>
+    <td>ShowMenuItems</td>
+    </tr>
+    <tr>
+    <td>new-restaurant</td>
+    <td>NewUser</td>
+    </tr>
+    <tr>
+    <td>edit-restaurant</td>
+    <td>EditUser</td>
+    </tr>
+    <tr>
+    <td>delete-restaurant</td>
+    <td>DeleteUser</td>
+    </tr>
+    <tr>
+    <td>search-restaurant</td>
+    <td>SearchUser</td>
+    </tr>
+    <tr>
+    <td>orders</td>
+    <td>ShowUsers</td>
+    </tr>
+    <tr>
+    <td>new-order</td>
+    <td>NewUser</td>
+    </tr>
+    <tr>
+    <td>edit-order</td>
+    <td>EditUser</td>
+    </tr>
+    <tr>
+    <td>delete-order</td>
+    <td>DeleteUser</td>
+    </tr>
+    <tr>
+    <td>search-order</td>
+    <td>SearchUser</td>
+    </tr>
+    <tr>
+    <td>restaurants</td>
+    <td>ShowRestaurants</td>
+    </tr>
+    <tr>
+    <td>cart</td>
+    <td>Cart</td>
+    </tr>
+  </table>
+</details>
+
+###### 10) Add services and dependency-injection for accessing the database.
+<details>
+  <summary>Click Here for Details</summary>
+  <table>
+    <tr>
+      <th>Service</th>
+      <th>Command</th>
+      <th>Methods</th>
+    </tr>
+    <tr>
+      <td>User</td>
+      <td>ng generate service user</td>
+      <td>getUsers()<br>
+          getUserByKey()<br>
+          addUser()<br>
+          updateUser()<br>
+          deleteUser()<br>
+          deleteAllUsers()
+      </td>
+    </tr>    
+    <tr>
+      <td>Restaurant</td>
+      <td>ng generate service restaurant</td>
+      <td>getRestaurants()<br>
+          getRestaurantsForCuisine()<br>
+          getRestaurantByKey()<br>
+          addRestaurant()<br>
+          updateRestaurant()<br>
+          deleteRestaurant()<br>
+          deleteAllRestaurants()
+      </td>
+    <tr>
+      <td>Order</td>
+      <td>ng generate service order</td>
+      <td>getOrders()<br>
+          getOrdersForUser()<br>
+          getOrderByKey()<br>
+          addOrder()<br>
+          updateOrder()<br>
+          deleteOrder()<br>
+          deleteAllOrders()
+      </td>
+    </tr>   
+  </table>
+</details>
+
+###### 11) Add an API call.
+###### 12) Add user authentication
+###### 13) Setup deployment to Firebase.
+###### 14) Deploy to firebase
 <details>
   <summary>Click Here for Firebase Deployment Steps</summary>
 <br>
@@ -254,6 +528,7 @@ $ firebase open
 <li>bootstrap 4.3.1</li>
 <li>core-js 2.4.1</li>
 <li>firebase 3.9.0</li>
+<li>font-awesome 4.7.0</li>
 <li>codelyzer 4.0.1</li>
 <li>jasmine-core 2.8.0</li>
 <li>jasmine-spec-reporter 4.2.1</li>
