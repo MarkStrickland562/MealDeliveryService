@@ -70,39 +70,39 @@ const appRoutes: Routes = [
   },
   {
     path: 'new-restaurant',
-    component: NewUserComponent
+    component: NewRestaurantComponent
   },
   {
     path: 'edit-restaurant/:id',
-    component: EditUserComponent
+    component: EditRestaurantComponent
   },
   {
     path: 'delete-restaurant/:id',
-    component: DeleteUserComponent
+    component: DeleteRestaurantComponent
   },
   {
     path: 'search-restaurant',
-    component: SearchUserComponent
+    component: SearchRestaurantComponent
   },
   {
     path: 'orders',
-    component: ShowUsersComponent
+    component: ShowOrdersComponent
   },
   {
     path: 'new-order',
-    component: NewUserComponent
+    component: NewOrderComponent
   },
   {
     path: 'edit-order/:id',
-    component: EditUserComponent
+    component: EditOrderComponent
   },
   {
     path: 'delete-order/:id',
-    component: DeleteUserComponent
+    component: DeleteOrderComponent
   },
   {
     path: 'search-order',
-    component: SearchUserComponent
+    component: SearchOrderComponent
   },
   {
     path: 'restaurants',
