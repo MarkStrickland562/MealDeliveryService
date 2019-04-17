@@ -55,10 +55,12 @@ export class OrderService {
 
   updateOrder(localUpdatedOrder){
     var orderInFirebase = this.getOrderByKey(localUpdatedOrder.$key);
-    orderInFirebase.update({orderDateTime: localUpdatedOrder.orderDateTime,
+    orderInFirebase.update({orderUserKey: localUpdatedOrder.orderUserKey,
+                            orderDateTime: localUpdatedOrder.orderDateTime,
                             deliveryDateTime: localUpdatedOrder.deliveryDateTime,
                             restaurantKey: localUpdatedOrder.restaurantKey,
-                            orderDetails: localUpdatedOrder.orderDetails});
+                            orderItems: localUpdatedOrder.orderItems,
+                            totalCost: localUpdatedOrder.totalCost});
   }
 
   deleteOrder(orderToBeDeleted){
@@ -67,6 +69,6 @@ export class OrderService {
   }
 
   deleteAllOrders() {
-    this.orderList.remove()
+    this.orderList.remove();
   }
 }

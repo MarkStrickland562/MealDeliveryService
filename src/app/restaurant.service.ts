@@ -34,12 +34,12 @@ export class RestaurantService {
 
   updateRestaurant(localUpdatedRestaurant){
     var restaurantInFirebase = this.getRestaurantByKey(localUpdatedRestaurant.$key);
-    restaurantInFirebase.update({restaurant_name: localUpdatedRestaurant.restaurantName,
-                                 street_address: localUpdatedRestaurant.streetAddress,
+    restaurantInFirebase.update({restaurantName: localUpdatedRestaurant.restaurantName,
+                                 streetAddress: localUpdatedRestaurant.streetAddress,
                                  hours: localUpdatedRestaurant.hours,
                                  website: localUpdatedRestaurant.website,
                                  cuisine: localUpdatedRestaurant.cuisine,
-                                 menu_items: localUpdatedRestaurant.menuItems});
+                                 menuItems: localUpdatedRestaurant.menuItems});
   }
 
   deleteRestaurant(restaurantToBeDeleted){
@@ -48,6 +48,6 @@ export class RestaurantService {
   }
 
   deleteAllRestaurants() {
-    this.restaurantList.remove()
+    this.restaurantList.remove();
   }
 }

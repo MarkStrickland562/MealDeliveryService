@@ -29,6 +29,7 @@ import { NewMenuItemComponent } from './new-menu-item/new-menu-item.component';
 import { EditMenuItemComponent } from './edit-menu-item/edit-menu-item.component';
 import { DeleteMenuItemComponent } from './delete-menu-item/delete-menu-item.component';
 import { SearchMenuItemComponent } from './search-menu-item/search-menu-item.component';
+import { CartComponent } from './cart/cart.component';
 
 const appRoutes: Routes = [
   {
@@ -64,7 +65,7 @@ const appRoutes: Routes = [
     component: SearchUserComponent
   },
   {
-    path: 'restaurants/:restaurantId',
+    path: 'restaurants/:restaurantKey',
     component: ShowMenuItemsComponent
   },
   {
@@ -106,6 +107,10 @@ const appRoutes: Routes = [
   {
     path: 'restaurants',
     component: ShowRestaurantsComponent
+  },
+  {
+    path: 'cart',
+    component: CartComponent
   }
 ];
 

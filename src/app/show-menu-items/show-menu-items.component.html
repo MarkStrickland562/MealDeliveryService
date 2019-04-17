@@ -1,28 +1,28 @@
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 
-<div *ngIf="restaurantToDisplay">
-  <h2><i class="fas fa-utensils"></i> {{restaurantToDisplay.restaurantName}}</h2>
-  <h4><i class="fas fa-location-arrow"></i> {{restaurantToDisplay.streetAddress}}</h4>
-  <h4><i class="fas fa-clock"></i> {{restaurantToDisplay.hours}}</h4>
-  <h4><i class="fas fa-globe"></i> <a href="http://{{restaurantToDisplay.website}}">{{restaurantToDisplay.website}}</a></h4>
+<div class="page">
+  <div class="restaurantDetailsContainer">
+    <div *ngIf="restaurantToDisplay">
+      <h2><i class="fa fa-utensils"></i> {{restaurantToDisplay.restaurantName}}</h2>
+      <h4><i class="fa fa-location-arrow"></i> {{restaurantToDisplay.streetAddress}}</h4>
+      <h4><i class="fa fa-clock"></i> {{restaurantToDisplay.hours}}</h4>
+      <h4><i class="fa fa-globe"></i> <a href="http://{{restaurantToDisplay.website}}">{{restaurantToDisplay.website}}</a></h4>
+    </div>
+  </div>
 
 
-  <h4>Menu</h4>
-
-  <div *ngFor="let item of menuItems">
-  <div class="row">
-    <div class="col-sm-3">
-      <ul>
-        <li>{{item.menuItemName}}, ${{item.menuItemCost}}</li>
-        <ul *ngFor="let sub of item.menuSubItems">
-          <li>{{sub}}</li>
-        </ul>
+  <div class="menuItemContainer" *ngFor="let item of menuItems">
+    <div class="listStyle">
+      <p class="left">{{item.menuItemName}}</p> 
+      <p class="right">${{item.menuItemCost}}</p>
+      <br>
+      
+      <p class="left">Comes With:</p>
+      <br>
+      <ul class="left">
+        <li *ngFor="let sub of item.menuSubItems">{{sub}}<span *ngIf="item.menuSubItems[item.menuSubItems.indexOf(sub) +1]">,</span>  </li>
       </ul>
+      <br>
     </div>
-    <div class="col-sm-1">
-      <button (click)="addToCart(item)"><i class="fas fa-cart-plus"></i></button>
-    </div>
+    <span title="Add To Cart"><button (click)="addToCart(item)"><i class="fa fa-cart-plus"></i></button></span>
   </div>
-  </div>
-
 </div>

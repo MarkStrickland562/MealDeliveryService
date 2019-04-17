@@ -1,0 +1,19 @@
+
+<!-- <p class ="cartEmpty" *ngIf="item.order_items">You cart is empty</p> if cart is empty, show cart is empty-->
+  
+
+<div class="wrapper">
+  <!-- <div class="cartItem" *ngIf="cart is not empty"> If cart has items, show items in cart-->
+    <h3>You Cart</h3>
+    <!-- <div *ngFor="item in order"> for each order in the cart-->
+      <p>Cart Item: {{item.order_items.item}}</p>
+      <p>Quanity:{{item.order_items.quantity}}</p>
+      <p>Total Price: {{item.total_cost}}</p>
+      <button (click)="orderSubmit()">Checkout</button>
+    <!-- </div> -->
+  <!-- </div> -->
+</div>
+
+<div *ngIf="order === true">
+  <p>Order Success!</p>
+</div>

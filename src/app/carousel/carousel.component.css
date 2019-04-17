@@ -1,5 +1,22 @@
-.carousel {
-  width: 80%;
-  height: 60%;
-  margin: auto;
+.wrapper {
+  text-align: center;
+  grid-template-columns: 1fr;
+  display: grid;
+  height: 300px;
+  margin: 40px;
+}
+
+.heroImage {
+  position: relative;
+  background-size: cover;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.pexels.com/photos/724216/pexels-photo-724216.jpeg?auto=compress&cs=tinysrgb&h=650&w=940');
+  color: white;
+}
+
+
+#bottom {
+  width: 100%;
+  bottom: 0;
+  position: absolute;
+  
 }
