@@ -28,7 +28,8 @@ export class UserService {
                            lastName: localUpdatedUser.lastName,
                            emailAddress: localUpdatedUser.emailAddress,
                            deliveryAddress: localUpdatedUser.deliveryAddress,
-                           phoneNumber: localUpdatedUser.phoneNumber});
+                           phoneNumber: localUpdatedUser.phoneNumber,
+                           password: localUpdatedUser.password});
   }
 
   deleteUser(userToBeDeleted){

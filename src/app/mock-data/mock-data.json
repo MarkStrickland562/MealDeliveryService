@@ -6,7 +6,8 @@
       "lastName": "Strickland",
       "emailAddress": "markstrickland562@hotmail.com",
       "deliveryAddress": "511 East Roy Street, #408, Seattle, WA 98102",
-      "phoneNumber": "2067694978"
+      "phoneNumber": "2067694978",
+      "password": "password"
     }
   ],
   "restaurants":

@@ -44,6 +44,10 @@ import { CarouselComponent } from './carousel/carousel.component';
 import { FilterComponent } from './filter/filter.component';
 import { RestaurantListComponent } from './restaurant-list/restaurant-list.component';
 import { CartComponent } from './cart/cart.component';
+import { SearchUserFirstNamePipe } from './search-user-first-name-pipe';
+import { SearchUserLastNamePipe } from './search-user-last-name-pipe';
+import { SearchRestaurantNamePipe } from './search-restaurant-name-pipe';
+import { SearchRestaurantCuisinePipe } from './search-restaurant-cuisine-pipe';
 
 export const firebaseConfig = {
   apiKey: masterFirebaseConfig.apiKey,
@@ -89,7 +93,11 @@ export const firebaseConfig = {
     CarouselComponent,
     FilterComponent,
     RestaurantListComponent,
-    CartComponent
+    CartComponent,
+    SearchUserFirstNamePipe,
+    SearchUserLastNamePipe,
+    SearchRestaurantNamePipe,
+    SearchRestaurantCuisinePipe
   ],
   imports: [
     BrowserModule,

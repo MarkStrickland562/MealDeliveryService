@@ -29,6 +29,7 @@ export class EditUserComponent implements OnInit {
     this.route.params.forEach((urlParameters) => {
       this.userKey = urlParameters['id'];
     });
+console.log(this.userKey);
     this.userService.getUserByKey(this.userKey).subscribe(dataLastEmittedFromObserver => {
       this.userToUpdate = dataLastEmittedFromObserver;
     })
@@ -39,7 +40,7 @@ export class EditUserComponent implements OnInit {
   }
 
   updateUser(userToUpdate) {
-    if (userToUpdate.firstName != "" && userToUpdate.lastName != "" && userToUpdate.emailAddress != "" &&userToUpdate.deliveryAddress != "" && userToUpdate.phoneNumber != "") {
+    if (userToUpdate.firstName != "" && userToUpdate.lastName != "" && userToUpdate.emailAddress != "" &&userToUpdate.deliveryAddress != "" && userToUpdate.phoneNumber != "" && userToUpdate.password != "") {
       this.userService.updateUser(userToUpdate);
       this.goToShowUserPage();
     } else {

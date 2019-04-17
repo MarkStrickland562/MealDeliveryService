@@ -1,3 +1,17 @@
-<p>
-  delete-user works!
-</p>
+<!DOCTYPE html>
+<html>
+<body>
+  <div class="wrapper">
+    <div id="page-content">
+        <h1 id="pageTitle">DELETE USER</h1>
+        <label>Confirm Delete:</label>
+        <select (change)="onSelect($event)">
+          <option value="undefined" disabled></option>
+          <option value=false>No</option>
+          <option value=true>Yes</option>
+        </select>
+        <button class="button" (click)="submitForm()">Confirm</button>
+      </div>
+    </div>
+  </body>
+</html>
