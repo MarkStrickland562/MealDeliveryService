@@ -64,7 +64,7 @@ const appRoutes: Routes = [
     component: SearchUserComponent
   },
   {
-    path: 'restaurants/:restaurantId',
+    path: 'restaurants/:restaurantKey',
     component: ShowMenuItemsComponent
   },
   {
@@ -106,10 +106,6 @@ const appRoutes: Routes = [
   {
     path: 'restaurants',
     component: ShowRestaurantsComponent
-  },
-  {
-    path: 'menu',
-    component: ShowMenuItemsComponent
   }
 ];
 
