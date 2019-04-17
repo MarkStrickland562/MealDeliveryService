@@ -110,7 +110,7 @@ console.log(order);
         //if(!key)
         //{
           console.log('add new order with items');
-          let newOrder = new Order(this.userKey, new Date(), new Date(), this.restaurantKey, [], 0);
+          let newOrder = new Order(this.userKey, new Date(), new Date(), this.restaurantKey, [], 0, 'INCOMPLETED');
           newOrder.orderItems.push(newOrderItem);
           key = this.orderService.addOrder(newOrder);
         //}
