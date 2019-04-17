@@ -1,0 +1,63 @@
+.page {
+  margin: 20px;
+}
+
+.menuItemContainer {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  height: 80px;
+  width: 50%;
+  min-width: 30%;
+  display: inline-block;
+  border: 1px solid black;
+  position: relative;
+  text-align: center;
+}
+
+button:hover {
+  transform: scale(1.2);
+  box-shadow: 1px 1px rgba(0, 0, 0, .5);
+
+}
+
+
+.restaurantDetailsContainer {
+  text-align: center
+}
+
+
+.listStyle ul {
+  list-style: none;
+  display: inline-block;
+}
+
+p {
+  margin: 0;
+  display: inline-block;
+}
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
+ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+li {
+  
+  margin: 5px;
+  margin-left: 0;
+  display: inline-block;
+}
+
+button {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
