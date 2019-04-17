@@ -37,23 +37,23 @@ export class ShowMenuItemsComponent implements OnInit {
 //      let restaurant = dataLastEmittedFromObserver;
       let items: MenuItem[] = [];
 
-      for(let i = 0; i < dataLastEmittedFromObserver.menu_items.length; i++){
+      for(let i = 0; i < dataLastEmittedFromObserver.menuItems.length; i++){
         let subItems: string[] = [];
 
-        for(let j = 0; j < dataLastEmittedFromObserver.menu_items[i].menu_sub_items.length; j++){
-          subItems.push(dataLastEmittedFromObserver.menu_items[i].menu_sub_items[j]);
+        for(let j = 0; j < dataLastEmittedFromObserver.menuItems[i].menuSubItems.length; j++){
+          subItems.push(dataLastEmittedFromObserver.menuItems[i].menuSubItems[j]);
         }
-        let newItem = new MenuItem(dataLastEmittedFromObserver.menu_items[i].menu_item_name,
-                     dataLastEmittedFromObserver.menu_items[i].cost,
-                     dataLastEmittedFromObserver.menu_items[i].preparation_time,
+        let newItem = new MenuItem(dataLastEmittedFromObserver.menuItems[i].menuItemName,
+                     dataLastEmittedFromObserver.menuItems[i].cost,
+                     dataLastEmittedFromObserver.menuItems[i].preparationTime,
                      subItems);
 
         items.push(newItem);
         this.menuItems.push(newItem);
       }
       this.restaurantToDisplay = new Restaurant(
-                     dataLastEmittedFromObserver.restaurant_name,
-                     dataLastEmittedFromObserver.street_address,
+                     dataLastEmittedFromObserver.restaurantName,
+                     dataLastEmittedFromObserver.streetAddress,
                      dataLastEmittedFromObserver.hours,
                      dataLastEmittedFromObserver.website,
                      dataLastEmittedFromObserver.cuisine,
@@ -69,7 +69,7 @@ export class ShowMenuItemsComponent implements OnInit {
     let newOrderItem = new OrderItem(menuItemToAdd.menuItemName, 1, parseInt(menuItemToAdd.menuItemCost));
 
     if(this.order === null){
-      let newOrder = new Order(this.userKey, new Date(), new Date(), this.restaurantKey, [], 0);
+      let newOrder = new Order(this.userKey, new Date(), new Date(), this.restaurantKey, [], 0, "");
       this.shoppingCartService.addNewOrder(newOrder);
       this.order = newOrder;
     }
