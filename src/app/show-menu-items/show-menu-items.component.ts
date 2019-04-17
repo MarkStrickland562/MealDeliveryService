@@ -55,7 +55,7 @@ export class ShowMenuItemsComponent implements OnInit {
     this.restaurantService.getRestaurantByKey(this.restaurantKey).subscribe(dataLastEmittedFromObserver => {
 //      let restaurant = dataLastEmittedFromObserver;
       let items: MenuItem[] = [];
-
+console.log(dataLastEmittedFromObserver);
       for(let i = 0; i < dataLastEmittedFromObserver.menuItems.length; i++){
         let subItems: string[] = [];
 
@@ -86,34 +86,31 @@ export class ShowMenuItemsComponent implements OnInit {
     let timesAdded=0;
     let key = null;
     let subscription = this.orderService.getOrders().subscribe(snapshot => {
-      
+
 // TODO: add order state
 
       let order;
       for(let i = 0; i < snapshot.length; i++)
-        if(snapshot[i].restaurantKey === this.restaurantKey){
+        if(snapshot[i].restaurantKey === this.restaurantKey && snapshot[i].status === 'INCOMPLETED'){
           order = snapshot[i];
           break;
         }
 
       let newOrderItem = new OrderItem(menuItemToAdd.menuItemName, 1, parseInt(menuItemToAdd.menuItemCost));
-console.log(order);
       if(order != null){
-        if(timesAdded===0){
-          console.log('add order items');
+        if(timesAdded===0){console.log('add order items');
           this.orderService.addOrderItem(order.$key, newOrderItem);
+          this.orderService.updateOrderCost(order.$key, order.totalCost + newOrderItem.cost);
           timesAdded++;
         }
       }
       else //if(order == null)
       {
-        //if(!key)
-        //{
-          console.log('add new order with items');
-          let newOrder = new Order(this.userKey, new Date(), new Date(), this.restaurantKey, [], 0, 'INCOMPLETED');
-          newOrder.orderItems.push(newOrderItem);
-          key = this.orderService.addOrder(newOrder);
-        //}
+console.log('add new order with items');
+        let newOrder = new Order(this.userKey, new Date(), new Date(), this.restaurantKey, [], 0, 'INCOMPLETED');
+        newOrder.addNewOrderItem(newOrderItem);
+        key = this.orderService.addOrder(newOrder);
+
       }
       subscription.unsubscribe();
     })

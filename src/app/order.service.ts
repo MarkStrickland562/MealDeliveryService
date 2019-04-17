@@ -43,14 +43,19 @@ export class OrderService {
 
   addOrder(newOrder: Order) {
     var newRef = this.orderList.push(newOrder);
+    console.log('adding new order to firebase');
+    console.log(newOrder);
     return newRef.key;
   }
 
   addOrderItem(orderKey: string, newOrderItem: OrderItem) {
+    let ref = `orders/${orderKey}/orderItems/`;
+    this.database.list(ref).push(newOrderItem);
+  }
 
-    let ref = `orders/${orderKey}/order_items/`;
-    console.log(newOrderItem);
-    //this.database.list(ref).push(newOrderItem);
+  updateOrderCost(orderKey: string, cost: number){
+    var orderInFirebase = this.database.object('/orders/' + orderKey)
+    orderInFirebase.update({totalCost: cost});
   }
 
   updateOrder(localUpdatedOrder){
