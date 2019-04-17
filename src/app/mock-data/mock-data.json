@@ -28,24 +28,24 @@
           ]
       },
       {
-        "restaurant_name": "Olive Garden",
-        "street_address": "Kirkland, WA 98104",
+        "restaurantName": "Olive Garden",
+        "streetAddress": "Kirkland, WA 98104",
         "hours": "11:00 AM - 10:00 PM",
         "website": "www.olivegarden.com",
         "cuisine": "Italian",
-        "menu_items":
+        "menuItems":
           [
             {
-              "menu_item_name": "Pasta",
+              "menuItemName": "Pasta",
               "cost": "12",
-              "preparation_time": "10",
-              "menu_sub_items": ["Pasta", "Tomato"]
+              "preparationTime": "10",
+              "menuSubItems": ["Pasta", "Tomato"]
             },
             {
-              "menu_item_name": "Rizotto",
+              "menuItemName": "Rizotto",
               "cost": "15",
-              "preparation_time": "15",
-              "menu_sub_items": ["Pasta", "Cheese"]
+              "preparationTime": "15",
+              "menuSubItems": ["Pasta", "Cheese"]
             }
           ]
       }
