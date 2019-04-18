@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { RestaurantService } from '../restaurant.service';
 import { FirebaseListObservable } from 'angularfire2/database';
 import { Router } from '@angular/router';
@@ -13,7 +13,7 @@ import { Restaurant } from '../models/restaurant.model';
   providers: [RestaurantService]
 })
 export class RestaurantListComponent implements OnInit {
-
+  @Input() filterByCuisineChild:any[] = [];
   restaurantList: FirebaseListObservable<any[]>;
   selectedRestaurant = null;
   selectedRestaurantToDelete = null;
