@@ -51,9 +51,9 @@ export class CartComponent implements OnInit {
           restaurantSubscription.unsubscribe();
         });
         this.orders.push(newOrder);
-        
       }
       orderSubscription.unsubscribe();
+      console.log(this.orders)
     });
     
   }

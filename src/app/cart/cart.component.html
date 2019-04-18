@@ -22,7 +22,12 @@
 
 <div class="wrapper">
   <h3>Cart</h3>
+  
+  <div *ngIf="orders.length < 1">
+    <p>Your Cart is Empty</p>
+  </div>
   <div *ngFor="let order of orders | completeness">
+      
       <h3>Your {{order.restaurant}} Order</h3>
     <div *ngFor="let orderItem of order.orderItems">
       <p>Dish: {{orderItem.menuItem}}, ${{orderItem.cost}}</p>
