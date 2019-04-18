@@ -6,5 +6,7 @@ export class Restaurant {
                public hours: string,
                public website: string,
                public cuisine: string,
+               public price: string,
+               public imageUrl: string,
                public menuItems: MenuItem []) {}
 }

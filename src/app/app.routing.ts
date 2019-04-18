@@ -30,6 +30,7 @@ import { EditMenuItemComponent } from './edit-menu-item/edit-menu-item.component
 import { DeleteMenuItemComponent } from './delete-menu-item/delete-menu-item.component';
 import { SearchMenuItemComponent } from './search-menu-item/search-menu-item.component';
 import { CartComponent } from './cart/cart.component';
+import { AdminComponent } from './admin/admin.component';
 
 const appRoutes: Routes = [
   {
@@ -70,39 +71,39 @@ const appRoutes: Routes = [
   },
   {
     path: 'new-restaurant',
-    component: NewUserComponent
+    component: NewRestaurantComponent
   },
   {
     path: 'edit-restaurant/:id',
-    component: EditUserComponent
+    component: EditRestaurantComponent
   },
   {
     path: 'delete-restaurant/:id',
-    component: DeleteUserComponent
+    component: DeleteRestaurantComponent
   },
   {
     path: 'search-restaurant',
-    component: SearchUserComponent
+    component: SearchRestaurantComponent
   },
   {
     path: 'orders',
-    component: ShowUsersComponent
+    component: ShowOrdersComponent
   },
   {
     path: 'new-order',
-    component: NewUserComponent
+    component: NewOrderComponent
   },
   {
     path: 'edit-order/:id',
-    component: EditUserComponent
+    component: EditOrderComponent
   },
   {
     path: 'delete-order/:id',
-    component: DeleteUserComponent
+    component: DeleteOrderComponent
   },
   {
     path: 'search-order',
-    component: SearchUserComponent
+    component: SearchOrderComponent
   },
   {
     path: 'restaurants',
@@ -111,6 +112,10 @@ const appRoutes: Routes = [
   {
     path: 'cart',
     component: CartComponent
+  },
+  {
+    path: 'admin',
+    component: AdminComponent
   }
 ];
 

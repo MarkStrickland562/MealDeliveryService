@@ -18,13 +18,15 @@
         "hours": "11:00 AM - 10:00 PM",
         "website": "www.jadegardenseattle.com",
         "cuisine": "Chinese",
+        "price": "$$",
+        "imageUrl": "http://jadegardenseattle.com/images/vendor/8643/home/m-jadegardenseattle.com.jpg",
         "menuItems":
           [
             {
               "menuItemName": "Mandarin Chicken",
               "menuItemCost": "10",
               "preparationTime": "30",
-              "menuSubItems": ["Chicken", "Rice", "Miso Soup"]
+              "menuSubItems": "Chicken, Rice, Miso Soup"
             }
           ]
       },
@@ -34,19 +36,21 @@
         "hours": "11:00 AM - 10:00 PM",
         "website": "www.olivegarden.com",
         "cuisine": "Italian",
+        "price": "$$",
+        "imageUrl": "https://media.olivegarden.com/images/site/logo_olivegarden.png",
         "menuItems":
           [
             {
               "menuItemName": "Pasta",
-              "cost": "12",
+              "menuItemCost": "12",
               "preparationTime": "10",
-              "menuSubItems": ["Pasta", "Tomato"]
+              "menuSubItems": "Pasta, Tomato"
             },
             {
               "menuItemName": "Rizotto",
-              "cost": "15",
+              "menuItemCost": "15",
               "preparationTime": "15",
-              "menuSubItems": ["Pasta", "Cheese"]
+              "menuSubItems": "Pasta, Cheese"
             }
           ]
       }

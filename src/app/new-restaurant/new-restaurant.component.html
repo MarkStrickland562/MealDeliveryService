@@ -1,3 +1,38 @@
-<p>
-  new-restaurant works!
-</p>
+<!DOCTYPE html>
+<html>
+  <body>
+    <div class="wrapper">
+      <form [formGroup]="addRestaurantForm" (ngSubmit)="addRestaurant()">
+        <hr>
+        <h1>ADD NEW RESTAURANT</h1>
+        <label>Restaurant Name:</label>
+        <input formControlName="restaurantName"><br>
+        <label>Street Address:</label>
+        <input formControlName="streetAddress"><br>
+        <label>Hours of Operation:</label>
+        <input formControlName="hours"><br>
+        <label>Website:</label>
+        <input formControlName="website"><br>
+        <label>Cuisine:</label>
+        <input formControlName="cuisine"><br>
+        <label>Price:</label>
+        <input formControlName="price"><br>
+        <label>Image URL:</label>
+        <input formControlName="imageUrl"><br><br>
+        <div formArrayName="menuItems">
+          <h2>Menu Items</h2>
+          <div *ngFor="let item of menuItemForms.controls; let i = index" [formGroupName]="i">
+            <input placeholder="Item Name" formControlName="menuItemName">
+            <input placeholder="Item Cost" formControlName="menuItemCost">
+            <input placeholder="Preparation Time" formControlName="preparationTime">
+            <input placeholder="Contents" formControlName="menuSubItems">
+            <button color="warn" (click)="deleteMenuItem(i)">Delete</button>
+          </div>
+          <button color="primary" type="button" (click)="addMenuItem()">Add Menu Item</button><br>
+        </div>
+        <br>
+        <button color="primary" type="submit">Add Restaurant</button>
+      </form>
+    </div>
+  </body>
+</html>

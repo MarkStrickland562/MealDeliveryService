@@ -62,6 +62,6 @@ button {
   bottom: 0;
 }
 
-#cartButton {
-  float: left;
+#cart {
+  cursor: pointer;
 }
