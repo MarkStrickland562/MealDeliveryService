@@ -25,7 +25,13 @@
     </div>
     <span title="Add To Cart"><button (click)="addToCart(item)"><i class="fa fa-cart-plus"></i></button></span>
   </div>
+  <div *ngIf="addedToCart === true" class="alert alert-warning alert-dismissible fade show" role="alert">
+      <strong>Item Added To Cart!</strong>
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+  </div>
   <br>
-  <a (click)="goToCart()">Go To Cart</a>
+  <a id="cart" (click)="goToCart()">Go To Cart</a>
 </div>
 
