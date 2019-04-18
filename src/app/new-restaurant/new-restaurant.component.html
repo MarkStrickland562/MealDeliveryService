@@ -1,3 +1,36 @@
-<p>
-  new-restaurant works!
-</p>
+<!DOCTYPE html>
+<html>
+  <body>
+    <div class="wrapper">
+      <div id="page-content">
+        <h1 id="pageTitle">ADD NEW RESTAURANT</h1>
+        <label>Enter Restaurant Name:</label>
+        <input #newRestaurantName>
+        <label>Enter Street Address:</label>
+        <input #newStreetAddress>
+        <label>Enter Hours of Operation:</label>
+        <input #newHours>
+        <label>Enter Website:</label>
+        <input #newWebsite>
+        <label>Enter cuisine:</label>
+        <input #newCuisine>
+        <div>
+            <h2>Enter Menu Items</h2>
+            <button (click)="addMenuItem()">Add</button>
+            <div [formGroup]="menuItemGroup">
+            <div formArrayName="menuItems" *ngFor="let item of menuItemsForm.get('menuItems').controls; let i = index;">
+              <ng-container [formGroupName]="i">
+                <input placeholder="Item Name" formControlName="itemName">
+                <input placeholder="Item Cost" formControlName="itemCost">
+                <input placeholder="Preparation Time" formControlName="preparationTime">
+                <input placeholder="Contents" formControlName="menuSubItems">
+              </ng-container>
+            </div>
+          </div>
+         </div>
+      </div>
+      <br><br>
+      <button class="button" (click)="addRestaurant(newRestaurantName.value, newStreetAddress.value, newHours.value, newCuisine.value); newRestaurantName.value=''; newStreetAddress.value=''; newHours.value=''; newWebsite.value=''; newCuisine.value=''">Add Restaurant</button>
+    </div>
+  </body>
+</html>
