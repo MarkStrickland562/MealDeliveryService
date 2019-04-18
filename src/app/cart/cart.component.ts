@@ -21,6 +21,7 @@ export class CartComponent implements OnInit {
   order = null;
   orders: Order[] = [];
   orderItemsArray: FirebaseListObservable<any[]>;
+  completedOrders = [];
   
   constructor(private router: Router, private route: ActivatedRoute, private location: Location, private orderService: OrderService, private restaurantService: RestaurantService) { }
 
@@ -58,16 +59,21 @@ export class CartComponent implements OnInit {
   }
 
   checkout(order: Order){
-    order.status = "COMPLETED"
-    this.orderService.checkoutOrder(order.key)
-    let done = document.getElementById('orderSuccess') 
+    order.status = "COMPLETED";
+    this.orderService.checkoutOrder(order.key);
+    let done = document.getElementById('orderSuccess');
       if (!done.style.display) {
         done.style.display = 'block';
       } 
+    this.completedOrders.push(order.key);
+    }
+
+    lastCompletedOrder() {
+      return this.completedOrders[this.completedOrders.length -1];
     }
   
     goToMenuPage(order) {
-      this.router.navigate(['restaurants', order.restaurantKey])
+      this.router.navigate(['restaurants', order.restaurantKey]);
     }
 
   }
