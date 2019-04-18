@@ -145,4 +145,5 @@ console.log('add new order with items');
   goToCart() {
     this.router.navigate(['cart'])
   }
+
 }
