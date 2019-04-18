@@ -12,7 +12,7 @@
 ## Description
 This project is the team project for the javascript/Angular class at Epicodus coding bootcamp. The project is a Meal Delivery Service application.
 
-The application can be accessed through this URL: TBD
+The application can be accessed through this URL: https://mealdeliveryservice-946e3.firebaseapp.com
 
 ## Specifications
 * An end-user can search for restaurants.
