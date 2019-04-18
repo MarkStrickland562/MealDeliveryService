@@ -55,7 +55,7 @@ export class NewRestaurantComponent implements OnInit {
   }
 
   // addRestaurant(restaurantName: string, streetAddress: string, hours: string, website: string, cuisine: string) {
-  //   if (restaurantName != "" && streetAddress != "" && hours != "" && website != "" && cuisine != "" && this.menuItems.length > 0) {
+  //   if (restaurantName != "" && streetAddress != "" && hours != "" && website != "" && cuisine != "" && price != "" && imageUrl != "" && this.menuItems.length > 0) {
   //     let newRestaurant: Restaurant = new Restaurant(restaurantName, streetAddress, hours, website, cuisine, this.menuItems);
   //     this.restaurantService.addRestaurant(newRestaurant);
   //     this.goToShowRestaurantPage();
