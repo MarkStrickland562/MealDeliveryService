@@ -12,7 +12,7 @@
 ## Description
 This project is the team project for the javascript/Angular class at Epicodus coding bootcamp. The project is a Meal Delivery Service application.
 
-The application can be accessed through this URL: TBD
+The application can be accessed through this URL: https://mealdeliveryservice-946e3.firebaseapp.com
 
 ## Specifications
 * An end-user can search for restaurants.
@@ -29,7 +29,7 @@ The application can be accessed through this URL: TBD
 * Font Awesome
 * 5 Model Classes
 * 33 Child Components
-* 4 Pipes
+* 5 Pipes
 * 20 Routes
 * 3 Services
 * 1 API
@@ -102,7 +102,8 @@ Create and populate the following scripts for the model classes:
                      public lastName: string,<br>
                      public emailAddress: string,<br>
                      public deliveryAddress: string,<br>
-                     public phoneNumber: string) {}<br>
+                     public phoneNumber: string,<br>
+                     public password: string) {}<br>
         }
     </td>
   </tr>
@@ -116,6 +117,8 @@ Create and populate the following scripts for the model classes:
                      public hours: string,<br>
                      public website: string,<br>
                      public cuisine: string,<br>
+                     public price: string,<br>
+                     public imageURL: string,<br>
                      public menuItems: MenuItem []) {}<br>
         }<br>
     </td>
@@ -264,6 +267,10 @@ $ ng generate component restaurant-list
     <tr>
       <td>SearchUserLastNamePipe</td>
       <td>ng generate pipe search-user-last-name-pipe</td>
+    </tr>
+    <tr>
+      <td>CompletenessPipe</td>
+      <td>ng generate pipe completeness-pipe</td>
     </tr>
   </table>
 </details>
