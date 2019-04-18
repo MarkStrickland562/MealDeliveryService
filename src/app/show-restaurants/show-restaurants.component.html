@@ -1,4 +1,4 @@
 <div>
-  <app-filter></app-filter>
-  <app-restaurant-list></app-restaurant-list>
+  <app-filter (clickSender)="updateSearchString($event)"></app-filter>
+  <app-restaurant-list [filterByCuisineChild]="filterByCuisine"></app-restaurant-list>
 </div>

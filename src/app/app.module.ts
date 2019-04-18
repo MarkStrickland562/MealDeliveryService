@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { routing } from './app.routing';
@@ -49,6 +49,8 @@ import { SearchUserLastNamePipe } from './search-user-last-name-pipe';
 import { SearchRestaurantNamePipe } from './search-restaurant-name-pipe';
 import { SearchRestaurantCuisinePipe } from './search-restaurant-cuisine-pipe';
 import { CompletenessPipe } from './completeness.pipe';
+import { FilterRestaurantsPipe } from './restaurant-list.pipe';
+
 
 export const firebaseConfig = {
   apiKey: masterFirebaseConfig.apiKey,
@@ -99,11 +101,13 @@ export const firebaseConfig = {
     SearchUserLastNamePipe,
     SearchRestaurantNamePipe,
     SearchRestaurantCuisinePipe,
-    CompletenessPipe
+    CompletenessPipe,
+    FilterRestaurantsPipe
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     routing,
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireDatabaseModule,
