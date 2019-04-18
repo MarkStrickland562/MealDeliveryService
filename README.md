@@ -152,7 +152,7 @@ Create and populate the following scripts for the model classes:
         constructor (public menuItemName: string,<br>
                      public menuItemCost: string,<br>
                      public preparationTime: string,<br>
-                     public menuSubItems: string []) {}<br>
+                     public menuSubItems: string) {}<br>
         }<br>
     </td>
   </tr>    
