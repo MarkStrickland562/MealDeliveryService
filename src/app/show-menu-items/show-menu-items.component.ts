@@ -26,6 +26,7 @@ export class ShowMenuItemsComponent implements OnInit {
   // currentOrder: Order;
   // orderItems: OrderItem[] = [];
   addedToCart = null;
+  
 
 
   constructor(private router: Router, private route: ActivatedRoute, private location: Location, private restaurantService: RestaurantService, private orderService: OrderService) { }
@@ -58,15 +59,15 @@ export class ShowMenuItemsComponent implements OnInit {
       let items: MenuItem[] = [];
 console.log(dataLastEmittedFromObserver);
       for(let i = 0; i < dataLastEmittedFromObserver.menuItems.length; i++){
-        let subItems: string[] = [];
+        // let subItems: string[] = [];
 
-        for(let j = 0; j < dataLastEmittedFromObserver.menuItems[i].menuSubItems.length; j++){
-          subItems.push(dataLastEmittedFromObserver.menuItems[i].menuSubItems[j]);
-        }
+        // for(let j = 0; j < dataLastEmittedFromObserver.menuItems[i].menuSubItems.length; j++){
+        //   subItems.push(dataLastEmittedFromObserver.menuItems[i].menuSubItems[j]);
+        // }
         let newItem = new MenuItem(dataLastEmittedFromObserver.menuItems[i].menuItemName,
                      dataLastEmittedFromObserver.menuItems[i].menuItemCost,
                      dataLastEmittedFromObserver.menuItems[i].preparationTime,
-                     subItems);
+                     dataLastEmittedFromObserver.menuItems[i].menuSubItems);
 
         items.push(newItem);
         this.menuItems.push(newItem);
