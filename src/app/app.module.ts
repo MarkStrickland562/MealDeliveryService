@@ -49,6 +49,7 @@ import { SearchUserLastNamePipe } from './search-user-last-name-pipe';
 import { SearchRestaurantNamePipe } from './search-restaurant-name-pipe';
 import { SearchRestaurantCuisinePipe } from './search-restaurant-cuisine-pipe';
 import { CompletenessPipe } from './completeness.pipe';
+import { AdminComponent } from './admin/admin.component';
 
 export const firebaseConfig = {
   apiKey: masterFirebaseConfig.apiKey,
@@ -99,7 +100,8 @@ export const firebaseConfig = {
     SearchUserLastNamePipe,
     SearchRestaurantNamePipe,
     SearchRestaurantCuisinePipe,
-    CompletenessPipe
+    CompletenessPipe,
+    AdminComponent
   ],
   imports: [
     BrowserModule,

@@ -53,7 +53,6 @@ export class CartComponent implements OnInit {
         this.orders.push(newOrder);
       }
       orderSubscription.unsubscribe();
-      console.log(this.orders)
     });
     
   }
