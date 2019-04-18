@@ -3,3 +3,7 @@ div {
   display: grid;
   grid-template-columns: 1fr 4fr;
 }
+
+app-filter {
+  width: 250px;
+}
