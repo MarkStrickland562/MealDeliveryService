@@ -3,7 +3,7 @@ import { Order } from './models/order.model';
 
 @Pipe({
   name: 'completeness',
-  pure: true
+  pure: false
 })
 export class CompletenessPipe implements PipeTransform {
 

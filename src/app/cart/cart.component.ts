@@ -59,10 +59,10 @@ export class CartComponent implements OnInit {
   checkout(order: Order){
     order.status = "COMPLETED"
     this.orderService.checkoutOrder(order.key)
+    let done = document.getElementById('orderSuccess') 
+      if (!done.style.display) {
+        done.style.display = 'block';
+      } 
+    }
   }
 
-  orderSubmit() {
-    this.order = true;
-  }
-
-}
