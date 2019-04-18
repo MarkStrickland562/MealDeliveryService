@@ -3,8 +3,10 @@ import { OrderService } from '../order.service';
 import { Order } from '../models/order.model';
 import { OrderItem } from '../models/orderItem.model';
 import { FirebaseListObservable } from 'angularfire2/database';
-import { Router } from '@angular/router';
 import { RestaurantService } from '../restaurant.service';
+import { ActivatedRoute, Router, Params } from '@angular/router';
+import { Location } from '@angular/common';
+
 
 @Component({
   selector: 'app-cart',
@@ -20,7 +22,7 @@ export class CartComponent implements OnInit {
   orders: Order[] = [];
   orderItemsArray: FirebaseListObservable<any[]>;
   
-  constructor(private orderService: OrderService, private restaurantService: RestaurantService) { }
+  constructor(private router: Router, private route: ActivatedRoute, private location: Location, private orderService: OrderService, private restaurantService: RestaurantService) { }
 
   ngOnInit() {
 
@@ -64,5 +66,10 @@ export class CartComponent implements OnInit {
         done.style.display = 'block';
       } 
     }
+  
+    goToMenuPage(order) {
+      this.router.navigate(['restaurants', order.restaurantKey])
+    }
+
   }
 

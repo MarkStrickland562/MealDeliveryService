@@ -29,10 +29,13 @@
       <p>Quanity: {{orderItem.quantity}}</p> 
     </div> 
       <p>Cost ${{order.totalCost}}</p>
+      <a (click)="goToMenuPage(order)">Add Items To Order</a>
     <button (click)="checkout(order)">Confirm Order</button>
   </div>
+
+  <div id="orderSuccess">
+    <p>Order Success!</p>
+  </div> 
 </div>
 
-<div id="orderSuccess">
-  <p>Order Success!</p>
-</div> 
+
