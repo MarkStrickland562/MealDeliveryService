@@ -39,7 +39,9 @@ export class RestaurantService {
                                  hours: localUpdatedRestaurant.hours,
                                  website: localUpdatedRestaurant.website,
                                  cuisine: localUpdatedRestaurant.cuisine,
-                                 menuItems: localUpdatedRestaurant.menuItems});
+                                 menuItems: localUpdatedRestaurant.menuItems,
+                                 price: localUpdatedRestaurant.price,
+                                 imageUrl: localUpdatedRestaurant.imageUrl});
   }
 
   deleteRestaurant(restaurantToBeDeleted){

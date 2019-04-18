@@ -77,6 +77,8 @@ console.log(dataLastEmittedFromObserver);
                      dataLastEmittedFromObserver.hours,
                      dataLastEmittedFromObserver.website,
                      dataLastEmittedFromObserver.cuisine,
+                     dataLastEmittedFromObserver.price,
+                     dataLastEmittedFromObserver.imageUrl,
                      items);
     });
   }
