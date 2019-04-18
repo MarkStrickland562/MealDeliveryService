@@ -25,6 +25,7 @@ export class ShowMenuItemsComponent implements OnInit {
   menuItems: MenuItem[] = [];
   // currentOrder: Order;
   // orderItems: OrderItem[] = [];
+  addedToCart = null;
 
 
   constructor(private router: Router, private route: ActivatedRoute, private location: Location, private restaurantService: RestaurantService, private orderService: OrderService) { }
@@ -138,6 +139,7 @@ console.log('add new order with items');
 
       }
       subscription.unsubscribe();
+      this.addedToCart = true;
     })
   }
   goToCart() {

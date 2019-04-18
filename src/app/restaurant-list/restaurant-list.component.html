@@ -4,7 +4,7 @@
         {{restaurant.restaurant_name}}
       </div> -->
       <div class="restaurantBlock" *ngFor="let restaurant of restaurantList | async" (click)="goToMenuPage(restaurant)">
-          <img src="https://www.chinasichuanfood.com/wp-content/uploads/2015/03/Chinese-dumplings-from-flours-37.jpg"> 
+          <img src="{{restaurant.photo}}"> 
           <p>{{restaurant.restaurantName}}</p>
           <p>Style: {{restaurant.cuisine}}</p>
           <p>Price: {{restaurant.price}}</p>
