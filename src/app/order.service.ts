@@ -53,8 +53,13 @@ export class OrderService {
     this.database.list(ref).push(newOrderItem);
   }
 
+  updateOrderItems(orderKey: string, orderItems: OrderItem[]) {
+    var orderInFirebase = this.database.object('/orders/' + orderKey);
+    orderInFirebase.update({orderItems: orderItems});
+  }
+
   updateOrderCost(orderKey: string, cost: number){
-    var orderInFirebase = this.database.object('/orders/' + orderKey)
+    var orderInFirebase = this.database.object('/orders/' + orderKey);
     orderInFirebase.update({totalCost: cost});
   }
 
@@ -68,6 +73,11 @@ export class OrderService {
                             totalCost: localUpdatedOrder.totalCost});
   }
 
+  checkoutOrder(key){
+    var orderInFirebase = this.getOrderByKey(key);
+    orderInFirebase.update({status: "COMPLETED"});
+  }
+
   deleteOrder(orderToBeDeleted){
     var orderToDeleteInFirebase = this.getOrderByKey(orderToBeDeleted.$key);
     orderToDeleteInFirebase.remove();
@@ -76,4 +86,6 @@ export class OrderService {
   deleteAllOrders() {
     this.orderList.remove();
   }
+
+  
 }

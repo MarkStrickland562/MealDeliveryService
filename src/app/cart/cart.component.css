@@ -3,3 +3,7 @@
   display: grid;
   margin: 40px;
 }
+
+#orderSuccess {
+  display: none;
+}
