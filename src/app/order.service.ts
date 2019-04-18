@@ -73,6 +73,11 @@ export class OrderService {
                             totalCost: localUpdatedOrder.totalCost});
   }
 
+  checkoutOrder(key){
+    var orderInFirebase = this.getOrderByKey(key);
+    orderInFirebase.update({status: "COMPLETED"});
+  }
+
   deleteOrder(orderToBeDeleted){
     var orderToDeleteInFirebase = this.getOrderByKey(orderToBeDeleted.$key);
     orderToDeleteInFirebase.remove();
@@ -81,4 +86,6 @@ export class OrderService {
   deleteAllOrders() {
     this.orderList.remove();
   }
+
+  
 }
