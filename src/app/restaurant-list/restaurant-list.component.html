@@ -3,8 +3,9 @@
       <!-- <div *ngFor="let restaurant of restaurantList | async">
         {{restaurant.restaurant_name}}
       </div> -->
-      <div class="restaurantBlock" *ngFor="let restaurant of restaurantList | async" (click)="goToMenuPage(restaurant)">
+      <div class="restaurantBlock" *ngFor="let restaurant of restaurantList | async | SearchRestaurantCuisinePipe:filterByCuisineChild" (click)="goToMenuPage(restaurant)">
           <img src="{{restaurant.imageUrl}}"> 
+
           <p>{{restaurant.restaurantName}}</p>
           <p>Style: {{restaurant.cuisine}}</p>
           <p>Price: {{restaurant.price}}</p>
@@ -12,4 +13,3 @@
       </div>
     </div>
   </div>
-  
