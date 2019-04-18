@@ -56,9 +56,6 @@ export class CartComponent implements OnInit {
 
   checkout(order: Order){
     order.status = "COMPLETED"
-  }
-
-  orderSubmit() {
     this.order = true;
   }
 
