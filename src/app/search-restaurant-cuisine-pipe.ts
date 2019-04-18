@@ -25,5 +25,6 @@ export class SearchRestaurantCuisinePipe implements PipeTransform {
   //
   //   return input.filter((it) =>
   //     it.cuisine.includes(searchString))
-  // }
+  //
+  }
 }
