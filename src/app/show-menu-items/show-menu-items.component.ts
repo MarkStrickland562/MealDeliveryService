@@ -102,15 +102,26 @@ console.log(dataLastEmittedFromObserver);
         if(timesAdded===0){
           console.log('add order items');
 
-          console.log(order.orderItems);
+          let quantityIncreased = false;
           for(let i=0; i < order.orderItems.length; i++){
             let cost = order.orderItems[i].cost;
             let menuItem = order.orderItems[i].menuItem;
             let quantity = order.orderItems[i].quantity;
+            if (menuItem === newOrderItem.menuItem){
+              console.log(menuItem);
+              quantityIncreased = true;
+              quantity++;
+            }
             let orderItem = new OrderItem(menuItem, quantity, cost);
             orderItems.push(orderItem);
           }
-          orderItems.push(newOrderItem);
+
+          if(quantityIncreased === false){
+            orderItems.push(newOrderItem);
+          }
+
+          console.log(orderItems);
+
           this.orderService.updateOrderItems(order.$key, orderItems);
           //this.orderService.addOrderItem(order.$key, newOrderItem);
 
