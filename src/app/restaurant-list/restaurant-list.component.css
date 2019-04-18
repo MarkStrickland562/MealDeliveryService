@@ -3,9 +3,6 @@
   grid-template-columns: 1fr;
 }
 
-.list {  
-  margin-left: 15px;
-}
 
 .restaurantBlock {
   text-align: center;
@@ -16,7 +13,7 @@
   display: inline-block;
   border: 1px solid black;
   vertical-align: middle;
-  margin: 20px;
+  margin-right: 20px;
   cursor: pointer;
 }
 
