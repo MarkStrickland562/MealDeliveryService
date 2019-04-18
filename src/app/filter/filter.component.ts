@@ -8,7 +8,7 @@ import { Component, Output, EventEmitter } from '@angular/core';
 export class FilterComponent {
 
   arrayOfSelections: any[] = [];
-  @Output() clickSender: EventEmitter = new EventEmitter();
+  @Output() clickSender = new EventEmitter();
 
   onChange(optionFromList) {
     if(this.arrayOfSelections.includes(optionFromList)){
