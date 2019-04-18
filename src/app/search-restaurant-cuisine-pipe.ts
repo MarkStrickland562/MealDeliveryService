@@ -7,13 +7,23 @@ import { Restaurant } from './models/restaurant.model';
 })
 
 export class SearchRestaurantCuisinePipe implements PipeTransform {
-  transform(input: any[], searchString: string): any[] {
-    if(!input) return [];
-    if(!searchString) return [];
+  transform(input: any[], searchString: any[]) {
+    if(!searchString.length){
+      return input;
+    }
+    let output: any[] = [];
+    for(let i = 0; i<input.length; i++){
+      if(searchString.includes(input[i].cuisine.toLowerCase())){
+        output.push(input[i]);
+      }
+    }
+    return output;
 
-    searchString = searchString.toLowerCase();
 
-    return input.filter((it:any) =>
-      it.cuisine.toLowerCase().includes(searchString))
-  }
+  //
+  //   if(!searchString) return input;
+  //
+  //   return input.filter((it) =>
+  //     it.cuisine.includes(searchString))
+  // }
 }

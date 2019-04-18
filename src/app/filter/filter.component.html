@@ -15,24 +15,25 @@
         <input type="checkbox" name="midrange" value=3> $$
         <br>
         <input type="checkbox" name="mostExpensive" value=5> $$$
-    
+
         <hr>
-      
+
         <h5>Filter by Cuisine:</h5>
-        <input type="checkbox" name="italian" value="italian"> Italian
-        <br>
-        <input type="checkbox" name="chinese" value="chinese"> Chinese
-        <br>
-        <input type="checkbox" name="mexican" value="mexican"> Mexican
-        <br>
-        <input type="checkbox" name="japanese" value="japanese"> Japanese
-        <br>
-        <input type="checkbox" name="american" value="american"> American
-        <br>
-        <input type="checkbox" name="indian" value="indian"> Indian
-        <br>
-        <br>
-        <button>Filter</button>
+        <div (change)="onChange($event.target.value)">
+          <input type="checkbox" name="italian" value="italian"> Italian
+          <br>
+          <input type="checkbox" name="chinese" value="chinese"> Chinese
+          <br>
+          <input type="checkbox" name="mexican" value="mexican"> Mexican
+          <br>
+          <input type="checkbox" name="japanese" value="japanese"> Japanese
+          <br>
+          <input type="checkbox" name="american" value="american"> American
+          <br>
+          <input type="checkbox" name="indian" value="indian"> Indian
+        </div>
+          <!-- <button (click)="onSubmit()">Filter</button> -->
+          <br>
       </form>
     </div>
   </div>

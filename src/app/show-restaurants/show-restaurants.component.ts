@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 import { FirebaseListObservable } from 'angularfire2/database';
 import { Restaurant } from '../models/restaurant.model';
@@ -12,10 +12,10 @@ import { RestaurantService } from '../restaurant.service';
 })
 
 export class ShowRestaurantsComponent implements OnInit {
-
   restaurantList: FirebaseListObservable<any[]>;
   selectedRestaurant = null;
   selectedRestaurantToDelete = null;
+  filterByCuisine: any[] = [];
 
   constructor(private router: Router, private restaurantService: RestaurantService){}
 
@@ -45,5 +45,9 @@ export class ShowRestaurantsComponent implements OnInit {
 
   goToSearchRestaurantPage() {
     this.router.navigate(['search-restaurant']);
+  }
+
+  updateSearchString(searchString){
+    this.filterByCuisine = searchString;
   }
 }
