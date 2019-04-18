@@ -21,6 +21,7 @@
 </div> -->
 
 <div class="wrapper">
+  <h3>Cart</h3>
   <div *ngFor="let order of orders | completeness">
       <h3>Your {{order.restaurant}} Order</h3>
     <div *ngFor="let orderItem of order.orderItems">
@@ -29,10 +30,9 @@
     </div> 
       <p>Cost ${{order.totalCost}}</p>
     <button (click)="checkout(order)">Confirm Order</button>
-    <div *ngIf="order.status === 'COMPLETED'">
-      <p>Order Success!</p>
-    </div> 
   </div>
 </div>
 
-
+<div id="orderSuccess">
+  <p>Order Success!</p>
+</div> 
