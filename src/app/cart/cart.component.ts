@@ -50,9 +50,12 @@ export class CartComponent implements OnInit {
         
       }
       orderSubscription.unsubscribe();
-      console.log(this.orders)
     });
     
+  }
+
+  checkout(order: Order){
+    order.status = "COMPLETED"
   }
 
   orderSubmit() {
