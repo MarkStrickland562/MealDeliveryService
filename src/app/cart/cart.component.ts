@@ -33,6 +33,7 @@ export class CartComponent implements OnInit {
         let status = snapshot[i].status;
         let totalCost = snapshot[i].totalCost;
         let orderItems: OrderItem[] = [];
+        let key = snapshot[i].$key;
         for(let j=0; j<snapshot[i].orderItems.length; j++){
           let cost = snapshot[i].orderItems[j].cost;
           let menuItem = snapshot[i].orderItems[j].menuItem;
@@ -41,6 +42,7 @@ export class CartComponent implements OnInit {
           orderItems.push(newOrderItem);
         }
         var newOrder = new Order(orderUserKey, new Date(), new Date(), restaurantKey, orderItems, totalCost, status);
+        newOrder.key = key;
         let restaurantSubscription = this.restaurantService.getRestaurantByKey(restaurantKey).subscribe(snapshot => {
           newOrder.restaurant = snapshot.restaurantName;
         
@@ -56,6 +58,10 @@ export class CartComponent implements OnInit {
 
   checkout(order: Order){
     order.status = "COMPLETED"
+    this.orderService.checkoutOrder(order.key)
+  }
+
+  orderSubmit() {
     this.order = true;
   }
 
