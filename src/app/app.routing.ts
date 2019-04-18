@@ -30,6 +30,7 @@ import { EditMenuItemComponent } from './edit-menu-item/edit-menu-item.component
 import { DeleteMenuItemComponent } from './delete-menu-item/delete-menu-item.component';
 import { SearchMenuItemComponent } from './search-menu-item/search-menu-item.component';
 import { CartComponent } from './cart/cart.component';
+import { AdminComponent } from './admin/admin.component';
 
 const appRoutes: Routes = [
   {
@@ -111,6 +112,10 @@ const appRoutes: Routes = [
   {
     path: 'cart',
     component: CartComponent
+  },
+  {
+    path: 'admin',
+    component: AdminComponent
   }
 ];
 

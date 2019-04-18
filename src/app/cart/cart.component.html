@@ -22,17 +22,25 @@
 
 <div class="wrapper">
   <h3>Cart</h3>
+  
+  <div *ngIf="orders.length < 1">
+    <p>Your Cart is Empty</p>
+  </div>
   <div *ngFor="let order of orders | completeness">
+      
       <h3>Your {{order.restaurant}} Order</h3>
     <div *ngFor="let orderItem of order.orderItems">
-      <p>Dish: {{orderItem.menuItem}}</p>
+      <p>Dish: {{orderItem.menuItem}}, ${{orderItem.cost}}</p>
       <p>Quanity: {{orderItem.quantity}}</p> 
     </div> 
-      <p>Cost ${{order.totalCost}}</p>
+      <p>Total Cost ${{order.totalCost}}</p>
+      <a (click)="goToMenuPage(order)"><span class="link">Add Items To Order</span></a>
     <button (click)="checkout(order)">Confirm Order</button>
   </div>
+
+  <div id="orderSuccess">
+    <p >Your Order Was Successful! Your order number is {{lastCompletedOrder()}}</p>
+  </div> 
 </div>
 
-<div id="orderSuccess">
-  <p>Order Success!</p>
-</div> 
+

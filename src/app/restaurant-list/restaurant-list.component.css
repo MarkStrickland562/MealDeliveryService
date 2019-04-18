@@ -17,6 +17,7 @@
   border: 1px solid black;
   vertical-align: middle;
   margin: 20px;
+  cursor: pointer;
 }
 
 .restaurantBlock:hover {
@@ -27,4 +28,12 @@
 img {
   height: 250px;
   width: 100%;
+}
+
+#menuLink {
+  color: blue;
+}
+
+#menuLink:hover {
+  text-decoration: underline;
 }

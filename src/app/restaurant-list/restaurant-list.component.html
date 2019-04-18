@@ -4,11 +4,11 @@
         {{restaurant.restaurant_name}}
       </div> -->
       <div class="restaurantBlock" *ngFor="let restaurant of restaurantList | async" (click)="goToMenuPage(restaurant)">
-          <img src="{{restaurant.photo}}"> 
+          <img src="{{restaurant.imageUrl}}"> 
           <p>{{restaurant.restaurantName}}</p>
           <p>Style: {{restaurant.cuisine}}</p>
           <p>Price: {{restaurant.price}}</p>
-
+          <p id="menuLink">See Menu</p>
       </div>
     </div>
   </div>
