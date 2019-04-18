@@ -4,25 +4,30 @@ import { Order } from '../models/order.model';
 import { OrderItem } from '../models/orderItem.model';
 import { FirebaseListObservable } from 'angularfire2/database';
 import { Router } from '@angular/router';
-import { Restaurant } from '../models/restaurant.model';
+import { RestaurantService } from '../restaurant.service';
 
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.css'],
-  providers: [OrderService]
+  providers: [
+    OrderService,
+    RestaurantService
+  ]
 })
 export class CartComponent implements OnInit {
   order = null;
   orders: Order[] = [];
   orderItemsArray: FirebaseListObservable<any[]>;
   
-  constructor(private orderService: OrderService) { }
+  constructor(private orderService: OrderService, private restaurantService: RestaurantService) { }
 
   ngOnInit() {
 
-    this.orderService.getOrders().subscribe(snapshot => {
+    let orderSubscription = this.orderService.getOrders().subscribe(snapshot => {
       for(let i=0; i<snapshot.length; i++){
+        if(snapshot[i].status === "COMPLETED")
+          continue;
         let orderUserKey = snapshot[i].orderUserKey;
         let restaurantKey = snapshot[i].restaurantKey;
         let status = snapshot[i].status;
@@ -33,24 +38,25 @@ export class CartComponent implements OnInit {
           let menuItem = snapshot[i].orderItems[j].menuItem;
           let quantity = snapshot[i].orderItems[j].quantity;
           let newOrderItem = new OrderItem(menuItem, quantity, cost);
-          console.log(newOrderItem);
           orderItems.push(newOrderItem);
         }
         var newOrder = new Order(orderUserKey, new Date(), new Date(), restaurantKey, orderItems, totalCost, status);
+        let restaurantSubscription = this.restaurantService.getRestaurantByKey(restaurantKey).subscribe(snapshot => {
+          newOrder.restaurant = snapshot.restaurantName;
+        
+          restaurantSubscription.unsubscribe();
+        });
         this.orders.push(newOrder);
-        console.log(newOrder);
+        
       }
+      orderSubscription.unsubscribe();
+      console.log(this.orders)
     });
     
   }
 
   orderSubmit() {
     this.order = true;
-  }
-
-  showOrderDetails(order){
-    this.order=order;
-    console.log(order.orderItems[0].menuItem);
   }
 
 }
