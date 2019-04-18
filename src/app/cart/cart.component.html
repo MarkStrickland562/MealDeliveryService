@@ -29,10 +29,10 @@
     </div> 
       <p>Cost ${{order.totalCost}}</p>
     <button (click)="checkout(order)">Confirm Order</button>
+    <div *ngIf="order.status === 'COMPLETED'">
+      <p>Order Success!</p>
+    </div> 
   </div>
 </div>
 
 
-<div *ngIf="order === true">
-    <p>Order Success!</p>
-  </div> 
