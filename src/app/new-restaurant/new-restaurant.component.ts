@@ -16,8 +16,7 @@ import { RestaurantService } from '../restaurant.service';
 
 export class NewRestaurantComponent implements OnInit {
 
-  menuItemsForm: FormGroup;
-  menuItems: FormArray;
+  addRestaurantForm: FormGroup;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -28,39 +27,50 @@ export class NewRestaurantComponent implements OnInit {
     {}
 
   ngOnInit() {
-    this.menuItemsForm = this.formBuilder.group({
-      menuItems: this.formBuilder.array([ this.createMenuItem() ])
-    });
+    this.addRestaurantForm = this.formBuilder.group({
+      restaurantName: '',
+      streetAddress: '',
+      hours: '',
+      website: '',
+      cuisine: '',
+      price: '',
+      imageUrl: '',
+      menuItems: this.formBuilder.array([])
+    })
+//    this.addRestaurantForm.valueChanges.subscribe(console.log);
   }
 
-  createMenuItem(): FormGroup {
-    return this.formBuilder.group({
-      menuItemName: '',
-      menuItemCost: '',
-      preparationTime: '',
-      menuSubItems: ''
-    });
+  get menuItemForms() {
+    return this.addRestaurantForm.get('menuItems') as FormArray
   }
 
-  addMenuItem(): void {
-    this.menuItems = this.menuItemsForm.get('menuItems') as FormArray;
-    this.menuItems.push(this.createMenuItem());
+  addMenuItem() {
+    const menuItem = this.formBuilder.group({
+      menuItemName:[],
+      menuItemCost: [],
+      preparationTime: [],
+      menuSubItems: [],
+    })
+    this.menuItemForms.push(menuItem);
   }
+
+  deleteMenuItem(i) {
+    this.menuItemForms.removeAt(i);
+  }
+
   goToShowRestaurantPage() {
       this.router.navigate(['restaurants']);
   }
 
   addRestaurant() {
-    console.log("At addRestaurant()");
+    const formValue = this.addRestaurantForm.value;
+    if (formValue.restaurantName != "" && formValue.streetAddress != "" && formValue.hours != "" && formValue.website != "" && formValue.cuisine != "" && formValue.price != "" && formValue.imageUrl != "" && formValue.menuItems.length > 0) {
+      let newRestaurant: Restaurant = new Restaurant(formValue.restaurantName, formValue.streetAddress, formValue.hours, formValue.website, formValue.cuisine, formValue.price, formValue.imageUrl, formValue.menuItems);
+     this.restaurantService.addRestaurant(newRestaurant);
+     location.reload();
+//     this.goToShowRestaurantPage();
+    } else {
+      alert('All fields are required!');
+    }
   }
-
-  // addRestaurant(restaurantName: string, streetAddress: string, hours: string, website: string, cuisine: string) {
-  //   if (restaurantName != "" && streetAddress != "" && hours != "" && website != "" && cuisine != "" && price != "" && imageUrl != "" && this.menuItems.length > 0) {
-  //     let newRestaurant: Restaurant = new Restaurant(restaurantName, streetAddress, hours, website, cuisine, this.menuItems);
-  //     this.restaurantService.addRestaurant(newRestaurant);
-  //     this.goToShowRestaurantPage();
-  //   } else {
-  //     alert('All fields are required!');
-  //   }
-  // }
 }
